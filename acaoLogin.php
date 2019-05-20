@@ -8,7 +8,7 @@
  if ($acao == "logoff"){
  	session_start();
  	session_destroy();
- 	header("location:login.php");
+ 	header("location:inicial.php");
  }else{
  	if (isset($_POST["acao"])){
  		$acao = $_POST["acao"];
@@ -52,7 +52,7 @@
 
  		header("location:index.php");
  	}else{
- 		header("location:login.php");
+ 		header("location:inicial.php");
  	}
  }
 ?>
