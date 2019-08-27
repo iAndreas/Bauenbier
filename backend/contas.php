@@ -11,7 +11,11 @@ $Vp  // VOLUME DE PERDA (Trub + retenção térmica)
 
 
 
+$SG  // SG(densidade da substancia) SG=Massa/Volume
+$massa
+$volume
 
+$SG = $massa / $volume;
 
 
 
