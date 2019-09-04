@@ -24,7 +24,7 @@
 </head>
 
 <body>
-	<?php printHeader(); ?>
+	<?php //printHeader(); ?>
 
 	<main>
 		<div class="container">
@@ -32,26 +32,19 @@
 				echo "<p class='center-align'>Bem vindo, <b>".$_SESSION['nome']."</b>.<br>Usuario: <b>".$_SESSION['usuario']."</b>.<br>	Você logou por ultimo  <b>".$_SESSION['ultimo_login']."</b>.</p>";
 			?>
 
-			<?php if($_SESSION['tipo'] == 'aluno') { ?>
+			<?php if($_SESSION['tipo'] == 'cervejeiro') { ?>
 				
 
 
 			<?php } ?>		
 
-			<?php if($_SESSION['tipo'] == 'professor' || $_SESSION['tipo'] == 'aluno') {
-				
-				$disciplinas = selectDisciplinas($_SESSION['matricula'], $_SESSION['tipo']);
-				//var_dump($disciplinas);
-				$contador=count($disciplinas);
-					
-			 } ?>
-
+			
 
 		</div>
 	</main>
 
 	<footer class="page-footer">
-		<?php printFooter(); ?>
+		<?php //printFooter(); ?>
 	</footer>
 
 	

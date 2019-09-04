@@ -16,7 +16,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-	<title>Entrar - Prove</title>
+	<title>Entrar - Bauenbier</title>
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -52,7 +52,7 @@
 								<input id="usuario" name="usuario" type="text" class="validate">
 								<label for="usuario">Nome de usuário</label>
 							</div>
-						</div>
+						</div><br/><br/>
 						<div class="row" style="margin-top: -2rem">
 							<div class="input-field col s12">
 								<input id="senha" name="senha" type="password" class="validate">

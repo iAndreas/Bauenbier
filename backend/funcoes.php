@@ -10,7 +10,7 @@ function printHeader() {
 		<div class="navbar-fixed">
 			<nav>
 			<div class="nav-wrapper container">
-				<a href="index.php" class="brand-logo"><img src="assets/img/logo.svg" alt="Prove"></a>
+				<a href="index.php" class="brand-logo"><img src="assets/img/logo.svg" alt="Bauenbier"></a>
 				<a href="#" data-target="sidenav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 				<li><a href="./">Home</a></li>
