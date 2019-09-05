@@ -5,35 +5,36 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Livro
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema Livro
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `Livro` DEFAULT CHARACTER SET utf8 ;
+USE `Livro` ;
+-- DROP DATABASE `Livro` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Usuario`
+-- Table `Livro`.`Usuario`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Usuario` (
-  `idCervejeiro` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `Livro`.`Usuario` (
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `Usuario` VARCHAR(45) NOT NULL,
   `Senha` VARCHAR(45) NOT NULL,
   `Nome` VARCHAR(45) NULL,
   `Data_nascimento` VARCHAR(45) NULL,
   `Ultimo_Login` DATE NULL,
   `Email` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idCervejeiro`),
-  UNIQUE INDEX `idCervejeiro_UNIQUE` (`idCervejeiro` ASC))
+  PRIMARY KEY (`idUsuario`),
+  UNIQUE INDEX `idUusario_UNIQUE` (`idUsuario` ASC))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`receita`
+-- Table `Livro`.`receita`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`receita` (
+CREATE TABLE IF NOT EXISTS `Livro`.`receita` (
   `idreceita` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `anotacao` VARCHAR(45) NULL,
@@ -43,16 +44,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`receita` (
   INDEX `fk_receita_Cervejeiro1_idx` (`Usuario_idUsuaio` ASC),
   CONSTRAINT `fk_receita_Cervejeiro1`
     FOREIGN KEY (`Usuario_idUsuaio`)
-    REFERENCES `mydb`.`Usuario` (`idCervejeiro`)
+    REFERENCES `Livro`.`Usuario` (`idCervejeiro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`lupulos`
+-- Table `Livro`.`lupulos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`lupulos` (
+CREATE TABLE IF NOT EXISTS `Livro`.`lupulos` (
   `idlupulo` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `origem` VARCHAR(15) NULL,
@@ -66,16 +67,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`lupulos` (
   INDEX `fk_lupulos_receita_idx` (`receita_idreceita` ASC),
   CONSTRAINT `fk_lupulos_receita`
     FOREIGN KEY (`receita_idreceita`)
-    REFERENCES `mydb`.`receita` (`idreceita`)
+    REFERENCES `Livro`.`receita` (`idreceita`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`graos`
+-- Table `Livro`.`graos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`graos` (
+CREATE TABLE IF NOT EXISTS `Livro`.`graos` (
   `idgraos` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
   `origem` VARCHAR(15) NULL,
@@ -89,16 +90,16 @@ CREATE TABLE IF NOT EXISTS `mydb`.`graos` (
   INDEX `fk_graos_receita1_idx` (`receita_idreceita` ASC),
   CONSTRAINT `fk_graos_receita1`
     FOREIGN KEY (`receita_idreceita`)
-    REFERENCES `mydb`.`receita` (`idreceita`)
+    REFERENCES `Livro`.`receita` (`idreceita`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`levedura`
+-- Table `Livro`.`levedura`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`levedura` (
+CREATE TABLE IF NOT EXISTS `Livro`.`levedura` (
   `idlevedura` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
   `anotacao` VARCHAR(100) NULL,
@@ -107,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`levedura` (
   INDEX `fk_levedura_receita1_idx` (`receita_idreceita` ASC),
   CONSTRAINT `fk_levedura_receita1`
     FOREIGN KEY (`receita_idreceita`)
-    REFERENCES `mydb`.`receita` (`idreceita`)
+    REFERENCES `Livro`.`receita` (`idreceita`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

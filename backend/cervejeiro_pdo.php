@@ -13,14 +13,14 @@ require_once "autoload.php";
 if (!$acao == '') {	
 	echo "Ação: ".$acao."<br>";
 	
-	$cervejeiro = new Cervejeiro;
-	if(isset($_POST['usuario'])) $cervejeiro->setusuario($_POST['usuario']);
-	if(isset($_POST['senha'])) $cervejeiro->setSenha(sha1($_POST['senha']));
-	if(isset($_POST['nome'])) $cervejeiro->setNome($_POST['nome']);
-	if(isset($_POST['data_nascimento'])) $cervejeiro->setDataNascimento($_POST['data_nascimento']);
-	if(isset($_POST['ultimo_login'])) $cervejeiro->setUltimoLogin($_POST['ultimo_login']);
-	if(isset($_POST['email'])) $cervejeiro->setEmail($_POST['email']);
-	echo $cervejeiro;
+	$usuario = new Usuario;
+	if(isset($_POST['usuario'])) $usuario->setusuario($_POST['usuario']);
+	if(isset($_POST['senha'])) $usuario->setSenha(sha1($_POST['senha']));
+	if(isset($_POST['nome'])) $usuario->setNome($_POST['nome']);
+	if(isset($_POST['data_nascimento'])) $usuario->setDataNascimento($_POST['data_nascimento']);
+	if(isset($_POST['ultimo_login'])) $usuario->setUltimoLogin($_POST['ultimo_login']);
+	if(isset($_POST['email'])) $usuario->setEmail($_POST['email']);
+	echo $usuario;
 	//echo "Senha: ".$_POST['senha'];
 }
 
@@ -49,7 +49,7 @@ try {
 
 function selectPDO_alun($criterio = 'Nome', $pesquisa = '') {
 	try {
-		$sql = "SELECT * FROM ".$GLOBALS['tb_cervejeiros']." WHERE ".$criterio." ";
+		$sql = "SELECT * FROM ".$GLOBALS['tb_usuarios']." WHERE ".$criterio." ";
 		if ($criterio == 'Nome' || $criterio = 'usuario') 
 			$sql .= " like '%".$pesquisa."%'";
 		else $sql .= ' = '.$pesquisa;
@@ -105,8 +105,8 @@ function selectPDO_alun_table($registros) {
 
 }
 
-function insertPDO_alun() {
-	$stmt = $GLOBALS['pdo']->prepare("INSERT INTO ".$GLOBALS['tb_cervejeiros']." (usuario, Senha, Nome, Data_Nascimento, Ultimo_Login, Email) VALUES (:usuario, :Senha, :Nome, :Data_Nascimento, :Ultimo_Login, :Email)");
+function insertPDO_usuario() {
+	$stmt = $GLOBALS['pdo']->prepare("INSERT INTO ".$GLOBALS['tb_usuarios']." (usuario, Senha, Nome, Data_Nascimento, Ultimo_Login, Email) VALUES (:usuario, :Senha, :Nome, :Data_Nascimento, :Ultimo_Login, :Email)");
 
 	$stmt->bindParam(':usuario', $usuario);
 	$stmt->bindParam(':Senha', $senha);
@@ -115,12 +115,12 @@ function insertPDO_alun() {
 	$stmt->bindParam(':Ultimo_Login', $ultimo_login);
 	$stmt->bindParam(':Email', $email);
 
-	$usuario = $GLOBALS['cervejeiro']->getusuario();
-	$senha = $GLOBALS['cervejeiro']->getSenha();
-	$nome = $GLOBALS['cervejeiro']->getNome();
-	$data_nascimento = $GLOBALS['cervejeiro']->getDataNascimento();
-	$ultimo_login = $GLOBALS['cervejeiro']->getUltimoLogin();
-	$email = $GLOBALS['cervejeiro']->getEmail();
+	$usuario = $GLOBALS['usuario']->getusuario();
+	$senha = $GLOBALS['usuario']->getSenha();
+	$nome = $GLOBALS['usuario']->getNome();
+	$data_nascimento = $GLOBALS['usuario']->getDataNascimento();
+	$ultimo_login = $GLOBALS['usuario']->getUltimoLogin();
+	$email = $GLOBALS['usuario']->getEmail();
 
 	$stmt->execute();
 
@@ -130,7 +130,7 @@ function insertPDO_alun() {
 }
 
 function updatePDO_alun() {
-	$stmt = GLOBALS['pdo']->prepare("UPDATE ".$GLOBALS['tb_cervejeiros']." SET usuario = :usuario, Senha = :Senha, Nome = :Nome, Data_Nascimento = :Data_Nascimento, Ultimo_Login = :Ultimo_Login, Email = :Email");
+	$stmt = GLOBALS['pdo']->prepare("UPDATE ".$GLOBALS['tb_usuarios']." SET usuario = :usuario, Senha = :Senha, Nome = :Nome, Data_Nascimento = :Data_Nascimento, Ultimo_Login = :Ultimo_Login, Email = :Email");
 
 	$stmt->bindParam(':Usuario', $usuario);
 	$stmt->bindParam(':Senha', $senha);
@@ -139,12 +139,12 @@ function updatePDO_alun() {
 	$stmt->bindParam(':Ultimo_Login', $ultimo_login);
 	$stmt->bindParam(':Email', $email);
 
-	$usuario = $GLOBALS['cervejeiro']->getUsuario();
-	$senha = $GLOBALS['cervejeiro']->getSenha();
-	$nome = $GLOBALS['cervejeiro']->getNome();
-	$data_nascimento = $GLOBALS['cervejeiro']->getDataNascimento();
-	$ultimo_login = $GLOBALS['cervejeiro']->getUltimoLogin();
-	$email = $GLOBALS['cervejeiro']->getEmail();
+	$usuario = $GLOBALS['usuario']->getUsuario();
+	$senha = $GLOBALS['usuario']->getSenha();
+	$nome = $GLOBALS['usuario']->getNome();
+	$data_nascimento = $GLOBALS['usuario']->getDataNascimento();
+	$ultimo_login = $GLOBALS['usuario']->getUltimoLogin();
+	$email = $GLOBALS['usuario']->getEmail();
 
 	$stmt->execute();
 
@@ -152,11 +152,11 @@ function updatePDO_alun() {
 }
 
 function deletePDO_alun() {
-	$stmt = $GLOBALS['pdo']->prepare("DELETE FROM ".$GLOBALS['tb_cervejeiros']." WHERE usuario = :usuario");
+	$stmt = $GLOBALS['pdo']->prepare("DELETE FROM ".$GLOBALS['tb_usuarios']." WHERE usuario = :usuario");
 
 	$stmt->bindParam(':usuario', $usuario);
 
-	$usuario = $GLOBALS['cervejeiro']->getusuario();
+	$usuario = $GLOBALS['usuario']->getusuario();
 
 	$stmt->execute();
 

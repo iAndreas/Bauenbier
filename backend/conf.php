@@ -4,7 +4,7 @@
 	//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	// Tabelas do Banco de Dados
-	$tb_cervejeiro = "Cervejeiros";
+	$tb_uusario = "Usuario";
 	//...
 
 

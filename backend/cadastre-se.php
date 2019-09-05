@@ -45,6 +45,7 @@
             
               <form action='cervejeiro_pdo.php' method='post'>
               
+              
               <div class="row">
                 <div class="input-field col s12 m6">
                   <input id="nome" name="nome" type="text" class="validate" />
@@ -57,8 +58,8 @@
               </div><br/><br/><br/>
               <div class="row" style="margin-top: -2rem">
                 <div class="input-field col s12 m6">
-                  <input id="matricula" name="matricula" type="text" class="validate" />
-                  <label for="matricula">Nome de usuário</label>
+                  <input id="usuario" name="usuario" type="text" class="validate" />
+                  <label for="usuario">Nome de usuário</label>
                 </div><br/>
                   <div class="input-field col s12 m6">
                   <input id="email" name="email" type="email" class="validate" />
@@ -80,7 +81,7 @@
               </div><br/><br/>
               <div class="row">
                 <div class="col s12 center">
-                  <button type="submit" name="acao" value="cadastrar" class="waves-effect waves-light btn">Cadastrar</a>
+                  <button type="submit" name="acao" value="cadastrar">Cadastrar</a>
                 </div>
               </div>
             </form>
