@@ -4,7 +4,8 @@
 	//$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	// Tabelas do Banco de Dados
-	$tb_uusario = "Usuario";
+	$tb_usuario = "Usuario";
+	
 	//...
 
 
