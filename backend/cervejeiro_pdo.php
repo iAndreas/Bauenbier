@@ -45,7 +45,7 @@ try {
 	echo "Erro: ".$e->getMessage();
 }
 
-#### Funções ###############################################
+##### Funções ###############################################
 
 function selectPDO_usuario($criterio = 'Nome', $pesquisa = '') {
 	try {
