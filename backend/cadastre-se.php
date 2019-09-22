@@ -48,27 +48,27 @@
               
               <div class="row">
                 <div class="input-field col s12 m6">
-                  <input id="nome" name="nome" type="text" class="validate" />
+                  <input id="nome" name="nome" type="text" class="validate" placeholder="Nome" />
                   <label for="nome">Nome</label>
                 </div><br/><br/>
                   <div class="input-field col s12 m6">
-                    <input id="senha" name="senha" type="password" class="validate" />
+                    <input id="senha" name="senha" type="password" class="validate" placeholder="Senha" />
                   <label for="senha">Senha</label>
                 </div>
               </div><br/><br/><br/>
               <div class="row" style="margin-top: -2rem">
                 <div class="input-field col s12 m6">
-                  <input id="usuario" name="usuario" type="text" class="validate" />
+                  <input id="usuario" name="usuario" type="text" class="validate" placeholder="usuario" />
                   <label for="usuario">Nome de usuário</label>
                 </div><br/>
                   <div class="input-field col s12 m6">
-                  <input id="email" name="email" type="email" class="validate" />
+                  <input id="email" name="email" type="email" class="validate" placeholder="email" />
                   <label for="email">E-Mail</label>
                 </div>
               </div><br/><br/><br/>
               <div class="row" style="margin-top: -2rem">
                 <div class="input-field col s12 m6 offset-m3">
-                  <input id="data_nascimento" name="data_nascimento" type="date" class="validate">
+                  <input id="data_nascimento" name="data_nascimento" type="date" class="validate" placeholder="data_nascimento" />
                   <span class="helper-text">Data de nascimento</span>
                   <!--<label for="dataNascimento">Data de Nascimento</label>-->
                 </div>

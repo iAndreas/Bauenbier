@@ -60,22 +60,22 @@
           </nav>
           <div class="container white" style="width: 100%; border-radius: 0px 0px 10px 10px; box-shadow: 0px 8px 15px lightgrey;">
             <div class="container">
-            <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
-        <form action="" method="post">
-			OG (Densidade Original)<input type="number" name="OG" id="OG" step = "any" min="0.0000" max="2.9999" value="<?php echo $OG; ?>"><br/>
-			FG (Densidade Final)<input type="number" step = "any" min="0.0000" max="2.9999" name="FG" id="FG" value="<?php echo $FG; ?>"><br/>
-      <br>
-      <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
-        <i class="material-icons right">send</i>
-      </button>
-		</form>
+              <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
+              <form action="" method="post">
+                OG (Densidade Original)<input type="number" name="OG" id="OG" step = "any" min="0.0000" max="2.9999" value="<?php echo $OG; ?>"><br/>
+                FG (Densidade Final)<input type="number" step = "any" min="0.0000" max="2.9999" name="FG" id="FG" value="<?php echo $FG; ?>"><br/>
+                <br/>
+                <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
     <?php
-  if ($OG > $FG) {
-    echo "<br/><b>Resultado:</b> O teor alcoólico obtido foi de ".number_format(round($ABV, 1), 1, ',', '.')." % ABV"; // round arredonda a variável ($variavel, numero de casas decimais)
-  }
+      if ($OG > $FG) {
+        echo "<br/><b>Resultado:</b> O teor alcoólico obtido foi de ".number_format(round($ABV, 1), 1, ',', '.')." % ABV"; // round arredonda a variável ($variavel, numero de casas decimais)
+      }
 
-?>
-<br><br><br>
+    ?>
+<br/><br/><br/>
   </div>
 
   </div>
