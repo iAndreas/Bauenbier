@@ -24,6 +24,175 @@ if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
     $SRM=0;
     $SRM = 1.4922 * ($UCM ** 0.6859);
 
+    $SRM_hex='';
+    switch ($SRM) {
+      case '1':
+        $SRM_hex= ;
+        break;
+
+      case '2':
+        $SRM_hex= ;
+        break;
+
+      case '3':
+        $SRM_hex= ;
+        break;
+
+      case '4':
+        $SRM_hex= ;
+        break;
+
+      case '5':
+        $SRM_hex= ;
+        break;
+
+      case '6':
+        $SRM_hex= ;
+        break;
+
+      case '7':
+        $SRM_hex= ;
+        break;
+
+      case '8':
+        $SRM_hex= ;
+        break;
+
+      case '9':
+        $SRM_hex= ;
+        break;
+
+      case '10':
+        $SRM_hex= ;
+        break;
+
+      case '11':
+        $SRM_hex= ;
+        break;
+
+      case '12':
+        $SRM_hex= ;
+        break;
+
+      case '13':
+        $SRM_hex= ;
+        break;
+
+      case '14':
+        $SRM_hex= ;
+        break;
+
+      case '15':
+        $SRM_hex= ;
+        break;
+
+      case '16':
+        $SRM_hex= ;
+        break;
+
+      case '17':
+        $SRM_hex= ;
+        break;
+
+      case '18':
+        $SRM_hex= ;
+        break;
+
+      case '19':
+        $SRM_hex= ;
+        break;
+
+      case '20':
+        $SRM_hex= ;
+        break;
+      
+      case '21':
+        $SRM_hex= ;
+        break;
+
+      case '22':
+        $SRM_hex= ;
+        break;
+
+      case '23':
+        $SRM_hex= ;
+        break;
+
+      case '24':
+        $SRM_hex= ;
+        break;
+
+      case '25':
+        $SRM_hex= ;
+        break;
+
+      case '26':
+        $SRM_hex= ;
+        break;
+
+      case '27':
+        $SRM_hex= ;
+        break;
+
+      case '28':
+        $SRM_hex= ;
+        break;
+
+      case '29':
+        $SRM_hex= ;
+        break;
+
+      case '30':
+        $SRM_hex= ;
+        break;
+
+      case '31':
+        $SRM_hex= ;
+        break;
+
+      case '32':
+        $SRM_hex= ;
+        break;
+
+      case '33':
+        $SRM_hex= ;
+        break;
+
+      case '34':
+        $SRM_hex= ;
+        break;
+
+      case '35':
+        $SRM_hex= ;
+        break;
+
+      case '36':
+        $SRM_hex= ;
+        break;
+
+      case '37':
+        $SRM_hex= ;
+        break;
+
+      case '38':
+        $SRM_hex= ;
+        break;
+
+      case '39':
+        $SRM_hex= ;
+        break;
+
+      case '40':
+        $SRM_hex= ;
+        break;
+      default:
+        $SRM_hex= ;
+        break;
+    }
+
+
+
+
 }
 
 ?>
@@ -73,9 +242,9 @@ if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
             <div class="container">
               <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
               <form action="" method="post">
-                volume_em_litros <input type="number" name="volume_em_litros" id="volume_em_litros" step = "any" min="0.0000" max="2.9999" value="<?php echo $volume_em_litros; ?>"><br/>
-                kgramas <input type="number" step = "any" min="0.0000" max="2.9999" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
-                cor_grao <input type="number" step = "any" min="0.0000" max="2.9999" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
+                volume_em_litros <input type="number" name="volume_em_litros" id="volume_em_litros" value="<?php echo $volume_em_litros; ?>"><br/>
+                kgramas <input type="number" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
+                cor_grao <input type="number" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
                 
                 
                 <br/>
@@ -85,7 +254,7 @@ if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
               </form>
     <?php
       if ($volume_em_litros > $kgramas) {
-        echo "<br/><b>Resultado:</b> O teor alcoólico obtido foi de ".number_format(round($ABV, 1), 1, ',', '.')." % ABV"; // round arredonda a variável ($variavel, numero de casas decimais)
+        echo "<br/><b>Resultado:</b> A cor obtido foi de ".number_format(round($SRM, 1), 1, ',', '.')."  SRM"; // round arredonda a variável ($variavel, numero de casas decimais)
       }
 
     ?>
