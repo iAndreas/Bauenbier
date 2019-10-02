@@ -62,7 +62,10 @@
             <div class="container">
               <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
               <form action="" method="post">
-                OG (Densidade Original)<input type="number" name="OG" id="OG" step = "any" min="0.0000" max="2.9999" value="<?php echo $OG; ?>"><br/>
+                <div class="input-field">
+                  <label for="OG">OG (Densidade Original)</label>
+                  <input type="number" name="OG" id="OG" step = "any" min="0.0000" max="2.9999" value="<?php echo $OG; ?>">
+                </div>
                 FG (Densidade Final)<input type="number" step = "any" min="0.0000" max="2.9999" name="FG" id="FG" value="<?php echo $FG; ?>"><br/>
                 <br/>
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar

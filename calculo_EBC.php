@@ -244,9 +244,9 @@ if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
             <div class="container">
               <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
               <form action="" method="post">
-                volume_em_litros <input type="number" name="volume_em_litros" id="volume_em_litros" value="<?php echo $volume_em_litros; ?>"><br/>
-                kgramas <input type="number" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
-                cor_grao <input type="number" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
+                volume_em_litros <input type="number" step=".001" name="volume_em_litros" id="volume_em_litros" value="<?php echo $volume_em_litros; ?>"><br/>
+                kgramas <input type="number" step=".001" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
+                cor_grao <input type="number" step=".01" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
                 
                 
                 <br/>
