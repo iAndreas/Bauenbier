@@ -1,18 +1,15 @@
 <?php
-
+  include 'funcoes_calculo.php';
     $OG = 0; // DENSIDADE ORIGINAL
     if (isset($_POST["OG"]))
                 $OG = $_POST["OG"];
 
-
     $FG = 0; // DENSIDADE FINAL
     if (isset($_POST["FG"]))
 				$FG = $_POST["FG"];
-    // %ABV = 131,25 * (OG – FG)
-    // %ABV = 131,25 * (1,065 – 1,0082)
-    // %ABV = 7,455%
+    
 
-    $ABV = 131.25 * ($OG - $FG);
+    $ABV = Calculo_ABV($OG,$FG);
 
 
 ?>

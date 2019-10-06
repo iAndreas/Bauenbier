@@ -1,5 +1,5 @@
 <?php
-include 'exeploarray.php';
+include 'funcoes_calculo.php';
 //https://aterradacerveja.com.br/brassagem/como-calcular-ibu-cerveja-artesanal.html/
     $volume_em_litros = 0; // VOLUME
     if (isset($_POST["volume_em_litros"]))
@@ -34,7 +34,7 @@ if ($volume_em_litros!=0 && $peso_lupulo_g!=0 && $alfa_acido!=0 && $dencidade_mo
     $U = 0;
 
 
-    $U = Utilizacao ($dencidade_mosto_pre_fervura, $tempo_fervura);
+    $U = Utilizacao_IBU ($dencidade_mosto_pre_fervura, $tempo_fervura);
     echo "<br>U ".$U;
 
 
