@@ -1,50 +1,39 @@
 <?php
 include 'funcoes_calculo.php';
 //https://aterradacerveja.com.br/brassagem/como-calcular-ibu-cerveja-artesanal.html/
-    $volume_em_litros = 0; // VOLUME
+    $volume_em_litros = ''; // VOLUME
     if (isset($_POST["volume_em_litros"]))
            echo     $volume_em_litros = $_POST["volume_em_litros"];
 
-    $dencidade_mosto_pre_fervura = 0; // DENSIDADE MOSTO ANTES DA FERVURA
+    $dencidade_mosto_pre_fervura = ''; // DENSIDADE MOSTO ANTES DA FERVURA
     if (isset($_POST["dencidade_mosto_pre_fervura"]))
           echo      $dencidade_mosto_pre_fervura = $_POST["dencidade_mosto_pre_fervura"];
 
-    $tempo_fervura = 0; // TEMPO DE FERVURA
+    $tempo_fervura = ''; // TEMPO DE FERVURA
     if (isset($_POST["tempo_fervura"]))
            echo     $tempo_fervura = $_POST["tempo_fervura"];
 
-    $peso_lupulo_g = 0; // MASSA DE LÚPULO
+    $peso_lupulo_g = ''; // MASSA DE LÚPULO
     if (isset($_POST["peso_lupulo_g"]))
 			echo	$peso_lupulo_g = str_replace(",",".",$_POST["peso_lupulo_g"]);
     
-    $alfa_acido = 0; // QUANTIDADE DE ALFA ACIDOS (OLHAR NA EMBALAGEM)
+    $alfa_acido = ''; // QUANTIDADE DE ALFA ACIDOS (OLHAR NA EMBALAGEM)
     if (isset($_POST["alfa_acido"]))
               echo $alfa_acido = str_replace(",",".",$_POST["alfa_acido"]);
       
 
-if ($volume_em_litros!=0 && $peso_lupulo_g!=0 && $alfa_acido!=0 && $dencidade_mosto_pre_fervura!=0 && $tempo_fervura!=0) {
+if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
     
     // PESO DO LIPULO DEVE SER EM MILIGRAMAS
-  echo "<br>peso mg ".  $peso_lupulo_mg = $peso_lupulo_g * 1000;
+    $peso_lupulo_mg = Unidade_medida_mg_para_g($peso_lupulo_g);
 
     // UNIDADE DE ALFA ACIDO É %
-    echo "<br>aa ". $A = $alfa_acido / 100;
-    
-
-    $U = 0;
-
+    $A = Unidade_medida_porcent_para_decimal($alfa_acido);
 
     $U = Utilizacao_IBU ($dencidade_mosto_pre_fervura, $tempo_fervura);
-    echo "<br>U ".$U;
+ 
+    $IBU = Calcula_IBU($U,$A,$peso_lupulo_mg,$volume_em_litros);
 
-
-
-    echo "<br>IBU -- ".  $IBU = ($U * $A * $peso_lupulo_mg) / $volume_em_litros;
-
-
-
-
-     
 
 }
 
@@ -95,19 +84,34 @@ if ($volume_em_litros!=0 && $peso_lupulo_g!=0 && $alfa_acido!=0 && $dencidade_mo
             <div class="container">
               <h1 class="center-align">Cálculo: Amargor (IBU)</h1><br><br>
               <form action="" method="post">
-                volume_em_litros <input type="number" step=".001" name="volume_em_litros" id="volume_em_litros" value="<?php echo $volume_em_litros; ?>"><br/>
-                dencidade_mosto_pre_fervura <input type="number" step=".001" name="dencidade_mosto_pre_fervura" id="dencidade_mosto_pre_fervura" value="<?php echo $dencidade_mosto_pre_fervura; ?>"><br/>
-                tempo_fervura <input type="number" name="tempo_fervura" id="tempo_fervura" value="<?php echo $tempo_fervura; ?>"><br/>
-                peso_lupulo_g <input type="number" step=".001" name="peso_lupulo_g" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g; ?>"><br/>
-                alfa_acido (%) <input type="number" step=".001" name="alfa_acido" id="alfa_acido" value="<?php echo $alfa_acido; ?>"><br/>
+                <div class="input-field">
+                  <label for="volume_em_litros">Volume (L)</label>
+                  <input type="number" name="volume_em_litros" id="volume_em_litros" step=".01" value="<?php echo $volume_em_litros; ?>">
+                </div>
+                <div class="input-field">
+                  <label for="dencidade_mosto_pre_fervura">OG (Densidade Original)</label>
+                  <input type="number" name="dencidade_mosto_pre_fervura" id="dencidade_mosto_pre_fervura" step = "any" min="0.0000" max="2.9999" value="<?php echo $dencidade_mosto_pre_fervura; ?>">
+                </div>
+                <div class="input-field">
+                  <label for="tempo_fervura">Tempo de Fervura (Min)</label>
+                  <input type="number" name="tempo_fervura" id="tempo_fervura" value="<?php echo $tempo_fervura; ?>">
+               </div>
+                <div class="input-field">
+                  <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
+                  <input type="number" step=".001" name="peso_lupulo_g" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g; ?>">
+                </div>
+                <div class="input-field">
+                  <label for="alfa_acido">Alfa Ácido (%)</label>
+                  <input type="number" step=".01" name="alfa_acido" id="alfa_acido" value="<?php echo $alfa_acido; ?>">
+                </div>
                 
-                <br/>
+
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
                   <i class="material-icons right">send</i>
                 </button>
               </form>
     <?php
-      if ($IBU!=0) {
+      if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
         echo "<br/><b>Resultado:</b> O IBU obtido foi de ".number_format(round($IBU, 2), 2, ',', '.')." IBU"; 
       }
     ?>

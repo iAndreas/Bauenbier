@@ -1,15 +1,16 @@
 <?php
   include 'funcoes_calculo.php';
-    $OG = 0; // DENSIDADE ORIGINAL
+    $OG = ''; // DENSIDADE ORIGINAL
     if (isset($_POST["OG"]))
                 $OG = $_POST["OG"];
 
-    $FG = 0; // DENSIDADE FINAL
+    $FG = ''; // DENSIDADE FINAL
     if (isset($_POST["FG"]))
 				$FG = $_POST["FG"];
     
-
-    $ABV = Calculo_ABV($OG,$FG);
+    if ($OG != '' && $FG != '') {
+      $ABV = Calculo_ABV($OG,$FG);
+    }
 
 
 ?>
@@ -63,7 +64,9 @@
                   <label for="OG">OG (Densidade Original)</label>
                   <input type="number" name="OG" id="OG" step = "any" min="0.0000" max="2.9999" value="<?php echo $OG; ?>">
                 </div>
-                FG (Densidade Final)<input type="number" step = "any" min="0.0000" max="2.9999" name="FG" id="FG" value="<?php echo $FG; ?>"><br/>
+                <div class="input-field">
+                  <label for="OG">FG (Densidade Final)</label>
+                  <input type="number" step = "any" min="0.0000" max="2.9999" name="FG" id="FG" value="<?php echo $FG; ?>">
                 <br/>
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
                   <i class="material-icons right">send</i>

@@ -1,18 +1,18 @@
 <?php
   include 'funcoes_calculo.php';
-    $volume_em_litros = 0; // 
+    $volume_em_litros = ''; // 
     if (isset($_POST["volume_em_litros"]))
       $volume_em_litros = $_POST["volume_em_litros"];
 
-    $kgramas = 0; // 
+    $kgramas = ''; // 
     if (isset($_POST["kgramas"]))
 			$kgramas = $_POST["kgramas"];
     
-    $cor_grao = 0; // 
+    $cor_grao = ''; // 
     if (isset($_POST["cor_grao"]))
       $cor_grao = $_POST["cor_grao"];
 
-if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
+if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
 
     $SRM = Calcula_SRM($volume_em_litros,$kgramas,$cor_grao);
     
@@ -69,10 +69,18 @@ if ($volume_em_litros!=0 && $kgramas!=0 && $cor_grao!=0) {
             <div class="container">
               <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
               <form action="" method="post">
-                volume_em_litros <input type="number" step=".001" name="volume_em_litros" id="volume_em_litros" value="<?php echo $volume_em_litros; ?>"><br/>
-                kgramas <input type="number" step=".001" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
-                cor_grao <input type="number" step=".01" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
-                
+                <div class="input-field">
+                  <label for="volume_em_litros">Volume (L)</label>
+                  <input type="number" name="volume_em_litros" id="volume_em_litros" step=".01" value="<?php echo $volume_em_litros; ?>">
+                </div>
+                <div class="input-field">
+                  <label for="kgramas">Massa (Kg)</label>
+                  <input type="number" step=".001" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
+                </div>
+                <div class="input-field">
+                  <label for="cor_grao">Coloração do Grão</label>
+                  <input type="number" step=".01" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
+                </div>
                 
                 <br/>
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
