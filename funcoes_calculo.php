@@ -1,8 +1,13 @@
 <?php
 
     function Calculo_ABV($OG,$FG){
-       $ABV = 131.25 * ($OG - $FG);
-       return $ABV;
+        if ($OG > $FG) {
+            $ABV = 131.25 * ($OG - $FG);
+            return $ABV;
+        }
+        else{
+            $ABV = 0;
+        }
     }
 
 

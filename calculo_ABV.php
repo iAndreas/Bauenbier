@@ -74,8 +74,9 @@
               </form>
     <?php
       if ($OG > $FG) {
-        echo "<br/><b>Resultado:</b> O teor alcoólico obtido foi de ".number_format(round($ABV, 1), 1, ',', '.')." % ABV"; // round arredonda a variável ($variavel, numero de casas decimais)
-      }
+        echo "<br/><br/><b>Resultado:</b> O teor alcoólico obtido foi de ".number_format(round($ABV, 1), 1, ',', '.')." % ABV"; // round arredonda a variável ($variavel, numero de casas decimais)
+      }else
+        echo "<br/><br/><b>Erro:</b> Seu valor de OG é menor que do FG. Por favor verifique os dados e tente novamente.";
 
     ?>
 <br/><br/><br/>
