@@ -12,10 +12,17 @@
     if (isset($_POST["cor_grao"]))
       $cor_grao = $_POST["cor_grao"];
 
+      $unidade_medida = false;
+      if (isset($_POST["unidade_medida"])) {
+        $unidade_medida = $_POST['unidade_medida'];
+      }
+
 if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
 
     $SRM = Calcula_SRM($volume_em_litros,$kgramas,$cor_grao);
     
+    $EBC = Calcula_EBC($SRM);
+
     $SRM_aproximado = round($SRM);
 
     $SRM_hex=Cor_SRM($SRM_aproximado);
@@ -81,6 +88,16 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
                   <label for="cor_grao">Coloração do Grão</label>
                   <input type="number" step=".01" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
                 </div>
+                <!-- Switch -->
+                <div class="switch">
+                  <label>
+                    SRM
+                    <input name="unidade_medida" type="checkbox" <?php echo $unidade_medida ? " checked " : ""; ?>>
+                    <span class="lever"></span>
+                    EBC
+                  </label>
+                </div>
+
                 
                 <br/>
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
@@ -89,14 +106,25 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
               </form>
     <?php
       if ($volume_em_litros > $kgramas) {
-        if ($SRM_aproximado<6) {
-          $cor_texto = "black";
+        if ($unidade_medida) {
+          if ($SRM_aproximado<6) {
+            $cor_texto = "black";
+          }else{
+            $cor_texto = "white";
+          }
+          echo "<br/><b>Resultado:</b> A cor obtido foi de 
+            <b style='padding: 1rem; color: ".$cor_texto."; background-color: ".$SRM_hex.";'>".number_format(round($EBC, 1), 1, ',', '.')."</b>
+            EBC"; // round arredonda a variável ($variavel, numero de casas decimais)
         }else{
-          $cor_texto = "white";
+          if ($SRM_aproximado<6) {
+            $cor_texto = "black";
+          }else{
+            $cor_texto = "white";
+          }
+          echo "<br/><b>Resultado:</b> A cor obtido foi de 
+            <b style='padding: 1rem; color: ".$cor_texto."; background-color: ".$SRM_hex.";'>".number_format(round($SRM, 1), 1, ',', '.')."</b>
+            SRM"; // round arredonda a variável ($variavel, numero de casas decimais)
         }
-        echo "<br/><b>Resultado:</b> A cor obtido foi de 
-          <b style='padding: 1rem; color: ".$cor_texto."; background-color: ".$SRM_hex.";'>".number_format(round($SRM, 1), 1, ',', '.')."</b>
-          SRM"; // round arredonda a variável ($variavel, numero de casas decimais)
       }
     ?>
 <br/><br/><br/>
