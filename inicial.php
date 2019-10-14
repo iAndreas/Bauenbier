@@ -152,6 +152,7 @@
                   <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">IBU<i class="material-icons right">close</i></span>
                     <p>IBU significa International Bitterness Unit. Traduzindo para o português, unidade internacional de amargor. É pelo IBU que podemos ter uma ideia de o quão amarga é uma cerveja.</p>
+                    <a style="border-radius: 10px;" href="calculo_IBU.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
                   </div>
                 </div>
 
@@ -171,6 +172,7 @@
               <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4">ABV<i class="material-icons right">close</i></span>
                 <p>Alcohol by Volume, ou álcool por volume. É a medida de álcool na cerveja. De maneira geral, as cervejas são classificadas como de baixo, médio e de alto teor alcoólico.</p>
+                <a style="border-radius: 10px;" href="calculo_ABV.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
               </div>
             </div>
 
@@ -191,6 +193,7 @@
                   <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">SRM<i class="material-icons right">close</i></span>
                     <p>A cor está diretamente ligada à definição do tipo de cerveja, sua receita. Ela também revela o malte utilizado e o seu grau de torreifação.</p>
+                    <a style="border-radius: 10px;" href="calculo_COR.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
                   </div>
                 </div>
 

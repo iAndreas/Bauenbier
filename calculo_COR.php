@@ -74,7 +74,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
           </nav>
           <div class="container white" style="width: 100%; border-radius: 0px 0px 10px 10px; box-shadow: 0px 8px 15px lightgrey;">
             <div class="container">
-              <h1 class="center-align">Cálculo: Teor Alcoólico</h1><br><br>
+              <h1 class="center-align">Cálculo: Coloração</h1><br><br>
               <form action="" method="post">
                 <div class="input-field">
                   <label for="volume_em_litros">Volume (L)</label>
