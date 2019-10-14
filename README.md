@@ -9,4 +9,12 @@ TCC Cálculos para Cervejas Artesanais
 
 ## Até agora temos: ##
 
-Página inicial e Login
+- Página inicial;
+- Login;
+- Cálculo do IBU;
+- Cálculo do ABV;
+- Cálculo da Coloração.
+
+## Em Desenvolvimento: ##
+
+- Criar receitas.
