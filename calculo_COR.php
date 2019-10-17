@@ -85,7 +85,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
                   <input type="number" step=".001" name="kgramas" id="kgramas" value="<?php echo $kgramas; ?>"><br/>
                 </div>
                 <div class="input-field">
-                  <label for="cor_grao">Coloração do Grão</label>
+                  <label for="cor_grao">Coloração do Grão (Graus Lovibond)</label>
                   <input type="number" step=".01" name="cor_grao" id="cor_grao" value="<?php echo $cor_grao; ?>"><br/>
                 </div>
                 <!-- Switch -->
