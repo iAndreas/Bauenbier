@@ -215,7 +215,7 @@
         return $A;
     }
 
-    function Unidade_medida_mg_para_g($alfa_acido){
+    function Unidade_medida_g_para_mg($peso_lupulo_g){
          // PESO DO LÚPULO É RECEBIDO EM GRAMAS, MAS DEVE ESTAR EM MILIGRAMAS
         $peso_lupulo_mg = $peso_lupulo_g * 1000;
         return $peso_lupulo_mg;
@@ -229,7 +229,7 @@
 
 
     function Utilizacao_IBU ($og, $tempo){
-
+        try{
         $tempoFervura[3][1030] = 0.034;
         $tempoFervura[3][1040] = 0.031;
         $tempoFervura[3][1050] = 0.029;
@@ -629,6 +629,10 @@
         $tempoFervura[120][1130] = 0.123;
 
         $U = $tempoFervura[$tempo][$og];
+        } catch ($exception){
+            echo "tempo ou gravidade inexistente";
+            $U = 0;
+        }
         return $U;
     }
 

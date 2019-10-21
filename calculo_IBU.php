@@ -25,7 +25,7 @@ include 'funcoes_calculo.php';
 if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
     
     // PESO DO LIPULO DEVE SER EM MILIGRAMAS
-    $peso_lupulo_mg = Unidade_medida_mg_para_g($peso_lupulo_g);
+    $peso_lupulo_mg = Unidade_medida_g_para_mg($peso_lupulo_g);
 
     // UNIDADE DE ALFA ACIDO É %
     $A = Unidade_medida_porcent_para_decimal($alfa_acido);
@@ -64,19 +64,19 @@ if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade
             <div class="nav-wrapper container">
               <a id="lvolume_em_litroso-container" href="#" class="brand-lvolume_em_litroso">Bauenbier</a>
               <ul class="right hide-on-med-and-down">
-                <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
+                <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="inicial.php"> <i class="material-icons">home</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="#"> <i class="material-icons">info</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
               </ul>
 
-              <ul id="nav-mobile" class="sidenav">
+             <ul id="nav-mobile" class="sidenav">
                 <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
-                <li class="active"><a href="#">Página Inicial</a></li>
+                <li class="active"><a href="inicial.php">Página Inicial</a></li>
                 <li><a href="#">Cálculos</a></li>
                 <li><a href="#">Sobre Nós</a></li>
                 <li><a href="#">Lvolume_em_litrosin</a></li>
-              </ul>
+              </ul> 
               <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
           </nav>
