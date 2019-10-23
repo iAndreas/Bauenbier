@@ -229,7 +229,7 @@
 
 
     function Utilizacao_IBU ($og, $tempo){
-        try{
+        //try{
         $tempoFervura[3][1030] = 0.034;
         $tempoFervura[3][1040] = 0.031;
         $tempoFervura[3][1050] = 0.029;
@@ -627,12 +627,13 @@
         $tempoFervura[120][1110] = 0.147;
         $tempoFervura[120][1120] = 0.134;
         $tempoFervura[120][1130] = 0.123;
-
+        
+        $og = $og * 1000;
         $U = $tempoFervura[$tempo][$og];
-        } catch ($exception){
+      /*  } catch ($exception){
             echo "tempo ou gravidade inexistente";
             $U = 0;
-        }
+        }*/
         return $U;
     }
 

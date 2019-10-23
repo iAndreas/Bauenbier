@@ -1,42 +1,49 @@
 <?php
 include 'funcoes_calculo.php';
 //https://aterradacerveja.com.br/brassagem/como-calcular-ibu-cerveja-artesanal.html/
-    $volume_em_litros = ''; // VOLUME
-    if (isset($_POST["volume_em_litros"]))
-           echo     $volume_em_litros = $_POST["volume_em_litros"];
+$i=0;
+$IBU_total=0;
+var_dump($_POST);
+for ($i=0; $i < count($_POST['formulario']); $i++) { 
+ 
+    $volume_em_litros[$i] = ''; // VOLUME
+    if (isset($_POST["formulario"][$i]["volume_em_litros"]))
+      echo $volume_em_litros[$i] = $_POST["formulario"][$i]['volume_em_litros'];
 
-    $dencidade_mosto_pre_fervura = ''; // DENSIDADE MOSTO ANTES DA FERVURA
-    if (isset($_POST["dencidade_mosto_pre_fervura"]))
-          echo      $dencidade_mosto_pre_fervura = $_POST["dencidade_mosto_pre_fervura"];
+    $dencidade_mosto_pre_fervura[$i] = ''; // DENSIDADE MOSTO ANTES DA FERVURA
+    if (isset($_POST["formulario"][$i]["dencidade_mosto_pre_fervura"]))
+      echo      $dencidade_mosto_pre_fervura[$i] = $_POST["formulario"][$i]["dencidade_mosto_pre_fervura"];
 
-    $tempo_fervura = ''; // TEMPO DE FERVURA
-    if (isset($_POST["tempo_fervura"]))
-           echo     $tempo_fervura = $_POST["tempo_fervura"];
+    $tempo_fervura[$i] = ''; // TEMPO DE FERVURA
+    if (isset($_POST["formulario"][$i]["tempo_fervura"]))
+      echo     $tempo_fervura[$i] = $_POST["formulario"][$i]["tempo_fervura"];
 
-    $peso_lupulo_g = ''; // MASSA DE LÚPULO
-    if (isset($_POST["peso_lupulo_g"]))
-			echo	$peso_lupulo_g = str_replace(",",".",$_POST["peso_lupulo_g"]);
+    $peso_lupulo_g[$i] = ''; // MASSA DE LÚPULO
+    if (isset($_POST["formulario"][$i]["peso_lupulo_g"]))
+			echo	$peso_lupulo_g[$i] = str_replace(",",".",$_POST["formulario"][$i]["peso_lupulo_g"]);
 
-    $alfa_acido = ''; // QUANTIDADE DE ALFA ACIDOS (OLHAR NA EMBALAGEM)
-    if (isset($_POST["alfa_acido"]))
-              echo $alfa_acido = str_replace(",",".",$_POST["alfa_acido"]);
+    $alfa_acido[$i] = ''; // QUANTIDADE DE ALFA ACIDOS (OLHAR NA EMBALAGEM)
+    if (isset($_POST["formulario"][$i]["alfa_acido"]))
+        echo $alfa_acido[$i] = str_replace(",",".",$_POST["formulario"][$i]["alfa_acido"]);
 
 
-if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
+if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' && $dencidade_mosto_pre_fervura[$i]!='' && $tempo_fervura[$i]!='') {
 
     // PESO DO LIPULO DEVE SER EM MILIGRAMAS
-    $peso_lupulo_mg = Unidade_medida_mg_para_g($peso_lupulo_g);
+    $peso_lupulo_mg[$i] = Unidade_medida_g_para_mg($peso_lupulo_g[$i]);
 
     // UNIDADE DE ALFA ACIDO É %
-    $A = Unidade_medida_porcent_para_decimal($alfa_acido);
+    $A[$i] = Unidade_medida_porcent_para_decimal($alfa_acido[$i]);
 
-    $U = Utilizacao_IBU ($dencidade_mosto_pre_fervura, $tempo_fervura);
+    $U[$i] = Utilizacao_IBU ($dencidade_mosto_pre_fervura[$i], $tempo_fervura[$i]);
 
-    $IBU = Calcula_IBU($U,$A,$peso_lupulo_mg,$volume_em_litros);
+    $IBU[$i] = Calcula_IBU($U[$i],$A[$i],$peso_lupulo_mg[$i],$volume_em_litros[$i]);
 
-
+  $IBU_total += $IBU[$i];
 }
-
+ # for
+}
+$x = 5;
 ?>
 
 <html>
@@ -84,46 +91,84 @@ if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade
             <div class="container">
               <h1 class="center-align">Cálculo: Amargor (IBU)</h1><br><br>
               <div class="wrapper">
+              
               <form action="" method="post">
-                  <div id="clone-form">
-    <div id="clonedForm" class="cadastroGato" style="margin-top: 10px;">
-      <h3>Cálculo IBU[0]</h3>
-      <hr style="margin-bottom: 20px;" class="hr-color2"/>
-      <div class="input-field">
-        <label for="volume_em_litros">Volume (L)</label>
-        <input type="number" name="formulario[0][volume_em_litros]" id="volume_em_litros" step=".01" value="<?php echo $volume_em_litros; ?>"  data-constraints="@Required">
-      </div>
-      <div class="input-field">
-        <label for="dencidade_mosto_pre_fervura">OG (Densidade Original)</label>
-        <input type="number" name="formulario[0][dencidade_mosto_pre_fervura]" id="dencidade_mosto_pre_fervura" step = "any" min="0.0000" max="2.9999" value="<?php echo $dencidade_mosto_pre_fervura; ?>"  data-constraints="@Required">
-      </div>
-      <div class="input-field">
-        <label for="tempo_fervura">Tempo de Fervura (Min)</label>
-        <input type="number" name="formulario[0][tempo_fervura]" id="tempo_fervura" value="<?php echo $tempo_fervura; ?>"  data-constraints="@Required">
-     </div>
-      <div class="input-field">
-        <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
-        <input type="number" step=".001" name="formulario[0][peso_lupulo_g]" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g; ?>"  data-constraints="@Required">
-      </div>
-      <div class="input-field">
-        <label for="alfa_acido">Alfa Ácido (%)</label>
-        <input type="number" step=".01" name="formulario[0][alfa_acido]" id="alfa_acido" value="<?php echo $alfa_acido; ?>"  data-constraints="@Required">
-      </div>
-      <br>
-      <button type="button" class="clonador btn waves-effect waves-light amber darken-3">Adicionar IBU
-        <i class="material-icons right">add</i>
-      </button>
-      <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
-        <i class="material-icons right">send</i>
-      </button>
-    </div>
-  </div>
+              <div id="clone-form">
+                    <div id="clonedForm" class="calculaIBU" style="margin-top: 10px;">
+              <?php $i = 0; ?>
+                <div id="">
+                    <div id="" class="" style="margin-top: 10px;">
+                      <h3>Cálculo IBU[0]</h3>
+                      <hr style="margin-bottom: 20px;" class="hr-color2"/>
+                      <div class="input-field">
+                        <label for="volume_em_litros">Volume (L)</label>
+                        <input type="number" name="formulario[0][volume_em_litros]" id="volume_em_litros" step=".01" value="<?php echo $volume_em_litros[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <div class="input-field">
+                        <label for="dencidade_mosto_pre_fervura">OG (Densidade Original)</label>
+                        <input type="number" name="formulario[0][dencidade_mosto_pre_fervura]" id="dencidade_mosto_pre_fervura" step = "any" min="0.0000" max="2.9999" value="<?php echo $dencidade_mosto_pre_fervura[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <div class="input-field">
+                        <label for="tempo_fervura">Tempo de Fervura (Min)</label>
+                        <input type="number" name="formulario[0][tempo_fervura]" id="tempo_fervura" value="<?php echo $tempo_fervura[$i]; ?>"  data-constraints="@Required">
+                    </div> 
+                      <div class="input-field">
+                        <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
+                        <input type="number" step=".001" name="formulario[0][peso_lupulo_g]" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g[$i]; ?>"  data-constraints="@Required">
+                      </div> 
+                      <div class="input-field">
+                        <label for="alfa_acido">Alfa Ácido (%)</label>
+                        <input type="number" step=".01" name="formulario[0][alfa_acido]" id="alfa_acido" value="<?php echo $alfa_acido[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <br>
+                      </div>
+                      </div>
+              <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { for ($i=1; $i < count($_POST['formulario']); $i++) {
+                    ?>
+             
+                      <h3>Cálculo IBU[$i]</h3>
+                      <hr style="margin-bottom: 20px;" class="hr-color2"/>
+                      <div class="input-field">
+                        <label for="volume_em_litros">Volume (L)</label>
+                        <input type="number" name="formulario[0][volume_em_litros]" id="volume_em_litros" step=".01" value="<?php echo $volume_em_litros[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <div class="input-field">
+                        <label for="dencidade_mosto_pre_fervura">OG (Densidade Original)</label>
+                        <input type="number" name="formulario[0][dencidade_mosto_pre_fervura]" id="dencidade_mosto_pre_fervura" step = "any" min="0.0000" max="2.9999" value="<?php echo $dencidade_mosto_pre_fervura[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <div class="input-field">
+                        <label for="tempo_fervura">Tempo de Fervura (Min)</label>
+                        <input type="number" name="formulario[0][tempo_fervura]" id="tempo_fervura" value="<?php echo $tempo_fervura[$i]; ?>"  data-constraints="@Required">
+                      </div> 
+                      <div class="input-field">
+                        <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
+                        <input type="number" step=".001" name="formulario[0][peso_lupulo_g]" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g[$i]; ?>"  data-constraints="@Required">
+                      </div> 
+                      <div class="input-field">
+                        <label for="alfa_acido">Alfa Ácido (%)</label>
+                        <input type="number" step=".01" name="formulario[0][alfa_acido]" id="alfa_acido" value="<?php echo $alfa_acido[$i]; ?>"  data-constraints="@Required">
+                      </div>
+                      <br>
+                      <?php }} ?>
+                    </div>
+                  </div>
+                  <button type="button" class="clonador btn waves-effect waves-light amber darken-3">Adicionar IBU
+                    <i class="material-icons right">add</i>
+                  </button>
+                  <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
+                    <i class="material-icons right">send</i>
+                  </button>
               </form>
               </div>
+
     <?php
-      if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
-        echo "<br/><b>Resultado:</b> O IBU obtido foi de ".number_format(round($IBU, 2), 2, ',', '.')." IBU";
-      }
+     // $i=0;
+      //for ($i=0; $i < count($_POST['formulario']); $i++) { 
+
+        if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
+          echo "<br/><b>Resultado:</b> O IBU obtido foi de ".number_format(round($IBU_total, 2), 2, ',', '.')." IBU<hr>";
+        }
+      //}//for
     ?>
 <br/><br/><br/>
   </div>
@@ -142,7 +187,7 @@ if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade
 
     $(document).on('click', '.clonador', function(e){
         e.preventDefault();
-        var i = $('.cadastroGato').length;    //pega a quantidade de clones;
+        var i = $('.calculaIBU').length;    //pega a quantidade de clones;
         var elementos = elm_html.replace(/\[[0\]]\]/g, '['+i+++']');  //substitui o valor dos index e incrementa++
         $('#clone-form').append(elementos);  //exibe o clone.
     });
