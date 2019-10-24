@@ -70,7 +70,7 @@
           $sql.= $parentesf;
           echo $sql;
           $resultado = mysqli_query($conexao, $sql);
-          header("location:".$pagina."?tabela=$tb_tabela");
+         // header("location:".$pagina."?tabela=$tb_tabela");
       }
   }
 
