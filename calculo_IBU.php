@@ -3,7 +3,7 @@ include 'funcoes_calculo.php';
 //https://aterradacerveja.com.br/brassagem/como-calcular-ibu-cerveja-artesanal.html/
 $i=0;
 $IBU_total=0;
-var_dump($_POST);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 for ($i=0; $i < count($_POST['formulario']); $i++) { 
  
     $volume_em_litros[$i] = ''; // VOLUME
@@ -41,9 +41,10 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
 
   $IBU_total += $IBU[$i];
 }
- # for
+
 }
-$x = 5;
+}
+
 ?>
 
 <html>
@@ -126,7 +127,7 @@ $x = 5;
               <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { for ($i=1; $i < count($_POST['formulario']); $i++) {
                     ?>
              
-                      <h3>Cálculo IBU[$i]</h3>
+                      <h3>Cálculo IBU[0]</h3>
                       <hr style="margin-bottom: 20px;" class="hr-color2"/>
                       <div class="input-field">
                         <label for="volume_em_litros">Volume (L)</label>
@@ -162,13 +163,11 @@ $x = 5;
               </div>
 
     <?php
-     // $i=0;
-      //for ($i=0; $i < count($_POST['formulario']); $i++) { 
-
+     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
           echo "<br/><b>Resultado:</b> O IBU obtido foi de ".number_format(round($IBU_total, 2), 2, ',', '.')." IBU<hr>";
         }
-      //}//for
+      }
     ?>
 <br/><br/><br/>
   </div>
