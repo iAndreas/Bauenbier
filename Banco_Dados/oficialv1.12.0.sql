@@ -18,15 +18,13 @@ USE `Bauenbier` ;
 -- Table `Bauenbier`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Bauenbier`.`Usuario` (
-  `idCervejeiro` INT NOT NULL AUTO_INCREMENT,
-  `Usuario` VARCHAR(45) NOT NULL,
-  `Senha` VARCHAR(45) NOT NULL,
-  `Nome` VARCHAR(45) NULL,
-  `Data_nascimento` VARCHAR(45) NULL,
-  `Ultimo_Login` DATE NULL,
-  `Email` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idCervejeiro`),
-  UNIQUE INDEX `idCervejeiro_UNIQUE` (`idCervejeiro` ASC))
+		`codigo` INT(11) NOT NULL AUTO_INCREMENT,
+        `usuario` VARCHAR(45) DEFAULT NULL,
+        `senha` VARCHAR(45) DEFAULT NULL,
+        `nome` VARCHAR(45) DEFAULT NULL,
+        `dataInial` DATE,
+        `dataUltima` DATE,
+        PRIMARY KEY (`codigo`))
 ENGINE = InnoDB;
 
 
@@ -119,6 +117,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
+INSERT INTO Usuario (idCervejeiro,Usuario,Senha,Nome,Data_nascimento,Ultimo_Login,Email) VALUES ();
 
+select * from Usuario;
 
-INSERT INTO receita (Usuario_idUsuaio,nome,anotacao) VALUES ('godofredo', '456.798.123-69', 'André');
+INSERT INTO receita (Usuario_idUsuaio,nome,anotacao) VALUES (1, '456.798.123-69', 'André');

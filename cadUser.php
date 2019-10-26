@@ -2,7 +2,7 @@
 <?php
     include 'connect/connect.php';
     $titulo = "Integração com BD";
-    $tb_tabela = 'login';
+    
 ?>
 <html>
 <head>
@@ -19,7 +19,7 @@
       <h1>Banco de Dados de Estados</h1>
       <hr>
       <form method="get" action="acaoInserir.php" id="form">
-        <input type="hidden" name="tabela" value="<?php echo $tb_tabela ?>">
+        <input type="hidden" name="tabela" value="<?php echo $GLOBALS['tb_usuario'] ?>">
         <input type="hidden" name="pagina" value="cadUser.php">
         <input type="hidden" name="numero" value="5"><!-- MUDAR PARA QUANTIDADE DE CAMPOS -->
 

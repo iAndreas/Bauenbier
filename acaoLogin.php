@@ -21,7 +21,7 @@
  }
 
  function logar($user,$senha){
- 	$sql = "SELECT * FROM ".$GLOBALS['login']. " WHERE usuario = '$user'";
+ 	$sql = "SELECT * FROM ".$GLOBALS['tb_usuario']. " WHERE usuario = '$user'";
  	$result = mysqli_query($GLOBALS['conexao'],$sql);
  	$senhaBD = "";
  	$usuario = "";
@@ -42,7 +42,7 @@
  		$_SESSION['usuario'] = $usuario;
  		$_SESSION['nome'] = $nome;
 
- 		$sql = "UPDATE ".$GLOBALS['login']. " SET usuario = '". $user. "',
+ 		$sql = "UPDATE ".$GLOBALS['usuario']. " SET usuario = '". $user. "',
 	          dataUltima = '".$dataUltima ."'
 	          WHERE codigo = ".$codigo;
 	    echo $sql;

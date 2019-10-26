@@ -67,7 +67,7 @@
           print_r($lugares);
           echo "<br/><br/><br/>";
 
-            echo $sql = "SELECT * FROM login WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
+            echo $sql = "SELECT * FROM usuario WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
             $result = mysqli_query($conexao, $sql);
             
             

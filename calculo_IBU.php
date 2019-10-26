@@ -190,7 +190,6 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
         var elementos = elm_html.replace(/\[[0\]]\]/g, '['+i+++']');  //substitui o valor dos index e incrementa++
         $('#clone-form').append(elementos);  //exibe o clone.
     });
-
     });
     </script>
 

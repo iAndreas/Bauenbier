@@ -2,9 +2,13 @@
 	date_default_timezone_set('America/Sao_Paulo');
 
 	$url = "127.0.0.1";
-	$dbname = "crud";
+	$dbname = "Bauenbier";
 	$usuario = "root";
 	$password = "";
 
-	$login = "login";
+	$tb_usuario = "Usuario";
+	$tb_receita = "receita";
+	$tb_lupulos = "lupulos";
+	
+
  ?>
