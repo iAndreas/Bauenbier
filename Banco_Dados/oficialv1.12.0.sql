@@ -35,13 +35,13 @@ CREATE TABLE IF NOT EXISTS `Bauenbier`.`receita` (
   `idreceita` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `anotacao` VARCHAR(45) NULL,
-  `Usuario_idUsuaio` INT NOT NULL,
+  `Usuario_codigo` INT NOT NULL,
   PRIMARY KEY (`idreceita`),
   UNIQUE INDEX `idreceita_UNIQUE` (`idreceita` ASC),
-  INDEX `fk_receita_Cervejeiro1_idx` (`Usuario_idUsuaio` ASC),
+  INDEX `fk_receita_Cervejeiro1_idx` (`Usuario_codigo` ASC),
   CONSTRAINT `fk_receita_Cervejeiro1`
-    FOREIGN KEY (`Usuario_idUsuaio`)
-    REFERENCES `Bauenbier`.`Usuario` (`idCervejeiro`)
+    FOREIGN KEY (`Usuario_codigo`)
+    REFERENCES `Bauenbier`.`Usuario` (`codigo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -121,4 +121,4 @@ INSERT INTO Usuario (idCervejeiro,Usuario,Senha,Nome,Data_nascimento,Ultimo_Logi
 
 select * from Usuario;
 
-INSERT INTO receita (Usuario_idUsuaio,nome,anotacao) VALUES (1, '456.798.123-69', 'André');
+INSERT INTO receita (Usuario_codigo,nome,anotacao) VALUES (1, '456.798.123-69', 'André');
