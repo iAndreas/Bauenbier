@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 	<?php include 'conf/conf.inc.php';
-		  include 'valida.php'; 
+		  include 'valida.php';
 	?>
 <html>
 <head>
@@ -8,10 +8,12 @@
 	<title><?php echo $tittle; ?></title>
 </head>
 <body>
-	<br> <?php 
-			echo "Bem-vindo ".$_SESSION['nome'];
+	<br> <?php
+			echo "<h1 class='center-align'>Bem-vindo, ".$_SESSION['nome']."!</h1>";
 			echo "<br>";
-			echo "user: ".$_SESSION['usuario'];
+			echo "<center><h4>Sobre sua conta:</h4>";
+			echo "Usuário: ".$_SESSION['usuario'];
+			echo "<br></center>";
 		?>
 </body>
 </html>
