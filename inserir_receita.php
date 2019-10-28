@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <?php
+//include 'valida.php';
 include 'acaoLogin.php';
 include 'connect/connect.php';
 include 'funcoes.php';
 $tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 'receita';
-$campos = isset($_GET['campos']) ? $_GET['campos'] : '(Usuario_idUsuaio,nome,anotacao)';
+$campos = isset($_GET['campos']) ? $_GET['campos'] : '(Usuario_codigo,nome,anotacao)';
 $title = "Receita";
 ?>
 <html>
 
 <head>
   <?php
-  //die(var_dump(isset($_SESSION['usuario'])));
-
-  //if (!isset($_SESSION['usuario'])) {
-    //header("location:index.php");
-  //}
-  $usuario = '1'; //isset($_SESSION['usuario']);idCervejeiro
-
+  session_start();
+   //die(var_dump($_SESSION['codigo']));
+    $codigoUsuario= codigoUsuario($_SESSION['usuario']);
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,9 +59,9 @@ $title = "Receita";
         <form method="get" action="acao.php" id="form">
           <input type="hidden" name="tabela" value="<?php echo $tb_tabela ?>">
           <input type="hidden" name="campos" value="<?php echo $campos ?>">
-          <input type="hidden" name="pagina" value="inserir_receita.php">
+          <input type="hidden" name="pagina" value="inserir_graos.php">
           <input type="hidden" name="numero" value="3">
-          <input type="hidden" name="n1" value="<?php echo $usuario ?>">
+          <input type="hidden" name="n1" value="<?php echo $codigoUsuario ?>">
 
           <div class="input-field">
             <label for="n2">Nome</label>

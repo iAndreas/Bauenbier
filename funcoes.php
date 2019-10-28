@@ -26,7 +26,13 @@ function geraSelect($valor1,$valor2,$valor3,$valor4,$valor5){
 <?php
 }
 
-
+function codigoUsuario($nome){
+	$sql = "SELECT codigo FROM usuario WHERE usuario = '".$nome."'";
+	$result = mysqli_query($GLOBALS['conexao'],$sql);
+	while ($row = mysqli_fetch_array($result)) {
+		return $row['codigo'];
+	}	
+}
 
 
 function Query1paraN($tabela,$codigo,$coluna,$campoimprimir) {

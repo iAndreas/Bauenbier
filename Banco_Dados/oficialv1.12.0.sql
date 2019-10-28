@@ -19,7 +19,7 @@ USE `Bauenbier` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Bauenbier`.`Usuario` (
 		`codigo` INT(11) NOT NULL AUTO_INCREMENT,
-        `usuario` VARCHAR(45) DEFAULT NULL,
+        `usuario` VARCHAR(45) DEFAULT NULL UNIQUE,
         `senha` VARCHAR(45) DEFAULT NULL,
         `nome` VARCHAR(45) DEFAULT NULL,
         `dataInial` DATE,
@@ -117,8 +117,18 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 
-INSERT INTO Usuario (idCervejeiro,Usuario,Senha,Nome,Data_nascimento,Ultimo_Login,Email) VALUES ();
+
 
 select * from Usuario;
+select * from receita;
+
+
+
+SELECT codigo FROM usuario WHERE usuario = 'cristianpie';
+
 
 INSERT INTO receita (Usuario_codigo,nome,anotacao) VALUES (1, '456.798.123-69', 'André');
+
+
+
+

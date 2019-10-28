@@ -1,9 +1,14 @@
  <!DOCTYPE html>
-<?php
+  <?php
     include 'connect/connect.php';
     $titulo = "Integração com BD";
-    
-?>
+    if ($_GET['e']=='213') {
+      ?><script>
+          alert('Este nome de usuario já existe');
+        </script>
+      <?php
+    }
+  ?>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="_css/rede.css">
@@ -46,42 +51,6 @@
 </body>
 </html>
 <!--
-     create database crud;
-use crud;
-
-
-
-
-
-
-
-
-
-
-create table prova (
-codigo int primary key auto_increment,
-nomepaciente varchar (45),
-nomemed varchar (45),
-dataconsulta date,
-medicamento int,
-plano varchar (45),
-valor decimal(8,2)
-);
-
-insert into prova values
-(default, 'Daiane', 'Dr. Bigode', str_to_date('18/10/2001', '%d/%m/%Y'), 0, 'SUS', 150.00),
-(default, 'Daniele', 'Dr. Bigode', str_to_date('02/05/2002', '%d/%m/%Y'), 0, 'SUS', 175.00),
-(default, 'Julia', 'Dr. Bigode', str_to_date('26/03/2002', '%d/%m/%Y'), 1, 'Particular', 59.99),
-(default, 'Rian', 'Dr. Bigode', str_to_date('11/11/2002', '%d/%m/%Y'), 0, 'Social', 378.96),
-(default, 'Mateus', 'Dr. Trump', str_to_date('15/07/2001', '%d/%m/%Y'), 1, 'Plano de Saúde', 302.00),
-(default, 'Maria', 'Dr. Trump', str_to_date('18/04/2001', '%d/%m/%Y'), 1, 'SUS', 500.00),
-(default, 'Franciele', 'Dr. Bigode', str_to_date('25/01/1995', '%d/%m/%Y'), 0, 'Social', 150.00),
-(default, 'Kiko', 'Dr. Trump', str_to_date('20/09/2000', '%d/%m/%Y'), 1, 'Plano de Saúde', 60.00),
-(default, 'Pituco', 'Dr. Trump', str_to_date('06/01/2005', '%d/%m/%Y'), 0, 'Particular', 90.50),
-(default, 'Laira', 'Dr. Trump', str_to_date('25/02/1990', '%d/%m/%Y'), 1, 'Plano de Saúde', 200.00);
-
-
-select * from prova;
-
+     Página para cadastro de usuario
 
 -->

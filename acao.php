@@ -14,6 +14,8 @@
   $campos = isset($_GET['campos'])?$_GET['campos']:0;
 
   $pagina = isset($_GET['pagina'])?$_GET['pagina']:0;
+  
+
   $numero = isset($_GET['numero'])?$_GET['numero']:0;
   $parentesa = "(";
   $parentesf = ")";
@@ -70,7 +72,7 @@
           $sql.= $parentesf;
           echo $sql;
           $resultado = mysqli_query($conexao, $sql);
-         // header("location:".$pagina."?tabela=$tb_tabela");
+          header("location:".$pagina."?tabela=$tb_tabela");
       }
   }
 

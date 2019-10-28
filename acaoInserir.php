@@ -37,6 +37,18 @@
     }
   }*/
    if ($acao == 'salvar') {
+    $fim=false;
+    $sql = "SELECT usuario FROM usuario";
+    $result = mysqli_query($GLOBALS['conexao'],$sql);
+    while ($row = mysqli_fetch_array($result)) {
+      if ($row['usuario'] == $_GET['n1']) {
+        echo "volta";
+        $fim=true;
+      } 
+    }
+    if ($fim) {
+      header("location:cadUser.php?e=213");
+    }else{
       $tb_tabela = isset($_GET['tabela'])?$_GET['tabela']:0;
       $pagina = isset($_GET['pagina'])?$_GET['pagina']:0;
       $numero = isset($_GET['numero'])?$_GET['numero']:0;
@@ -70,16 +82,18 @@
             echo $sql = "SELECT * FROM usuario WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
             $result = mysqli_query($conexao, $sql);
             
+            die();
             
             if($result != $resultado){
-                header("location:cadUser.php");
+              header("location:cadUser.php");
             }
             else
             {
-                header("location:login.php");
+              header("location:login.php");
             }
 
           header("location:inicial.php");
+          }
       }
   }
 
