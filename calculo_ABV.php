@@ -7,7 +7,7 @@
     $FG = ''; // DENSIDADE FINAL
     if (isset($_POST["FG"]))
 				$FG = $_POST["FG"];
-    
+
     if ($OG != '' && $FG != '') {
       $ABV = Calculo_ABV($OG,$FG);
     }
@@ -42,7 +42,7 @@
               <ul class="right hide-on-med-and-down">
                 <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
-                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="#"> <i class="material-icons">info</i></a></li>
+                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
               </ul>
 
@@ -50,7 +50,7 @@
                 <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
                 <li class="active"><a href="#">Página Inicial</a></li>
                 <li><a href="#">Cálculos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="sobre.php">Sobre Nós</a></li>
                 <li><a href="#">Login</a></li>
               </ul>
               <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>

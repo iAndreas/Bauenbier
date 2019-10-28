@@ -1,14 +1,14 @@
 <?php
   include 'funcoes_calculo.php';
-    $volume_em_litros = ''; // 
+    $volume_em_litros = ''; //
     if (isset($_POST["volume_em_litros"]))
       $volume_em_litros = $_POST["volume_em_litros"];
 
-    $kgramas = ''; // 
+    $kgramas = ''; //
     if (isset($_POST["kgramas"]))
 			$kgramas = $_POST["kgramas"];
-    
-    $cor_grao = ''; // 
+
+    $cor_grao = ''; //
     if (isset($_POST["cor_grao"]))
       $cor_grao = $_POST["cor_grao"];
 
@@ -20,13 +20,13 @@
 if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
 
     $SRM = Calcula_SRM($volume_em_litros,$kgramas,$cor_grao);
-    
+
     $EBC = Calcula_EBC($SRM);
 
     $SRM_aproximado = round($SRM);
 
     $SRM_hex=Cor_SRM($SRM_aproximado);
-    
+
 }
 
 ?>
@@ -58,7 +58,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
               <ul class="right hide-on-med-and-down">
                 <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
-                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="#"> <i class="material-icons">info</i></a></li>
+                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
               </ul>
 
@@ -66,7 +66,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
                 <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
                 <li class="active"><a href="#">Página Inicial</a></li>
                 <li><a href="#">Cálculos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="sobre.php">Sobre Nós</a></li>
                 <li><a href="#">Lvolume_em_litrosin</a></li>
               </ul>
               <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -98,7 +98,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
                   </label>
                 </div>
 
-                
+
                 <br/>
                 <button class="btn waves-effect waves-light amber darken-3" type="submit" name="acao">Enviar
                   <i class="material-icons right">send</i>
@@ -112,7 +112,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
           }else{
             $cor_texto = "white";
           }
-          echo "<br/><b>Resultado:</b> A cor obtido foi de 
+          echo "<br/><b>Resultado:</b> A cor obtido foi de
             <b style='padding: 1rem; color: ".$cor_texto."; background-color: ".$SRM_hex.";'>".number_format(round($EBC, 1), 1, ',', '.')."</b>
             EBC"; // round arredonda a variável ($variavel, numero de casas decimais)
         }else{
@@ -121,7 +121,7 @@ if ($volume_em_litros!='' && $kgramas!='' && $cor_grao!='') {
           }else{
             $cor_texto = "white";
           }
-          echo "<br/><b>Resultado:</b> A cor obtido foi de 
+          echo "<br/><b>Resultado:</b> A cor obtido foi de
             <b style='padding: 1rem; color: ".$cor_texto."; background-color: ".$SRM_hex.";'>".number_format(round($SRM, 1), 1, ',', '.')."</b>
             SRM"; // round arredonda a variável ($variavel, numero de casas decimais)
         }

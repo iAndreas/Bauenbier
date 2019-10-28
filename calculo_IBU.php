@@ -4,8 +4,8 @@ include 'funcoes_calculo.php';
 $i=0;
 $IBU_total=0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-for ($i=0; $i < count($_POST['formulario']); $i++) { 
- 
+for ($i=0; $i < count($_POST['formulario']); $i++) {
+
     $volume_em_litros[$i] = ''; // VOLUME
     if (isset($_POST["formulario"][$i]["volume_em_litros"]))
       echo $volume_em_litros[$i] = $_POST["formulario"][$i]['volume_em_litros'];
@@ -74,7 +74,7 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
               <ul class="right hide-on-med-and-down">
                 <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
-                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="#"> <i class="material-icons">info</i></a></li>
+                <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
                 <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
               </ul>
 
@@ -82,7 +82,7 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
                 <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
                 <li class="active"><a href="#">Página Inicial</a></li>
                 <li><a href="#">Cálculos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="sobre.php">Sobre Nós</a></li>
                 <li><a href="#">Lvolume_em_litrosin</a></li>
               </ul>
               <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -92,7 +92,7 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
             <div class="container">
               <h1 class="center-align">Cálculo: Amargor (IBU)</h1><br><br>
               <div class="wrapper">
-              
+
               <form action="" method="post">
               <div id="clone-form">
                     <div id="clonedForm" class="calculaIBU" style="margin-top: 10px;">
@@ -112,11 +112,11 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
                       <div class="input-field">
                         <label for="tempo_fervura">Tempo de Fervura (Min)</label>
                         <input type="number" name="formulario[0][tempo_fervura]" id="tempo_fervura" value="<?php echo $tempo_fervura[$i]; ?>"  data-constraints="@Required">
-                    </div> 
+                    </div>
                       <div class="input-field">
                         <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
                         <input type="number" step=".001" name="formulario[0][peso_lupulo_g]" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g[$i]; ?>"  data-constraints="@Required">
-                      </div> 
+                      </div>
                       <div class="input-field">
                         <label for="alfa_acido">Alfa Ácido (%)</label>
                         <input type="number" step=".01" name="formulario[0][alfa_acido]" id="alfa_acido" value="<?php echo $alfa_acido[$i]; ?>"  data-constraints="@Required">
@@ -126,7 +126,7 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
                       </div>
               <?php if ($_SERVER['REQUEST_METHOD'] == 'POST') { for ($i=1; $i < count($_POST['formulario']); $i++) {
                     ?>
-             
+
                       <h3>Cálculo IBU[0]</h3>
                       <hr style="margin-bottom: 20px;" class="hr-color2"/>
                       <div class="input-field">
@@ -140,11 +140,11 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
                       <div class="input-field">
                         <label for="tempo_fervura">Tempo de Fervura (Min)</label>
                         <input type="number" name="formulario[0][tempo_fervura]" id="tempo_fervura" value="<?php echo $tempo_fervura[$i]; ?>"  data-constraints="@Required">
-                      </div> 
+                      </div>
                       <div class="input-field">
                         <label for="peso_lupulo_g">Massa do Lúpulo (g)</label>
                         <input type="number" step=".001" name="formulario[0][peso_lupulo_g]" id="peso_lupulo_g" value="<?php echo $peso_lupulo_g[$i]; ?>"  data-constraints="@Required">
-                      </div> 
+                      </div>
                       <div class="input-field">
                         <label for="alfa_acido">Alfa Ácido (%)</label>
                         <input type="number" step=".01" name="formulario[0][alfa_acido]" id="alfa_acido" value="<?php echo $alfa_acido[$i]; ?>"  data-constraints="@Required">

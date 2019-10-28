@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <?php 
+  <?php
   session_start();
-  if (isset($_SESSION['usuario'])) 
+  if (isset($_SESSION['usuario']))
     header("location:index.php");
  ?>
-  <meta charset="utf-8" />    
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon"  href="img/icone.png">
   <link rel="stylesheet" href="css/css.css">
@@ -26,7 +26,7 @@
       <ul class="right hide-on-med-and-down">
         <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
         <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
-        <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="#"> <i class="material-icons">info</i></a></li>
+        <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
         <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
       </ul>
 
@@ -34,7 +34,7 @@
         <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
         <li class="active"><a href="#">Página Inicial</a></li>
         <li><a href="#">Cálculos</a></li>
-        <li><a href="#">Sobre Nós</a></li>
+        <li><a href="sobre.php">Sobre Nós</a></li>
         <li><a href="#">Login</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -92,7 +92,7 @@
       Não possui uma conta?<a href="cadUser.php"> Cadastre-se</a>&ensp;&ensp;&ensp;
     </div>
   </div>
-          
+
     <div class="section">
       <!--   Icon Section   -->
       <div class="row">
