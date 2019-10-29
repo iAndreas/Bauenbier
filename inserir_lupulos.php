@@ -4,9 +4,9 @@
 include 'acaoLogin.php';
 include 'connect/connect.php';
 include 'funcoes.php';
-$tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 'receita';
+$tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 'lupulo';
 $campos = isset($_GET['campos']) ? $_GET['campos'] : '(Usuario_codigo,nome,anotacao)';
-$title = "Receita";
+$title = "Lúpulos";
 ?>
 <html>
 
@@ -59,12 +59,12 @@ $title = "Receita";
         <form method="get" action="acao.php" id="form">
           <input type="hidden" name="tabela" value="<?php echo $tb_tabela ?>">
           <input type="hidden" name="campos" value="<?php echo $campos ?>">
-          <input type="hidden" name="pagina" value="inserir_IBU.php">
+          <input type="hidden" name="pagina" value="inserir_lupulos.php">
           <input type="hidden" name="numero" value="3">
           <input type="hidden" name="n1" value="<?php echo $codigoUsuario ?>">
 
           <div class="input-field">
-            <label for="n2">Nome</label>
+            <label for="n2">Nome dos lupulos</label>
             <input input type="text" name="n2" id="n2" placeholder="Exemplo: Ipa IV" required="true" value="" data-constraints="@Required">
           </div>
           <div class="input-field">

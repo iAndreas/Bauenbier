@@ -43,6 +43,32 @@ function Query1paraN($tabela,$codigo,$coluna,$campoimprimir) {
 			echo $row[$campoimprimir];
 		}
     }
-    
+
+
+
+function geraSelectReceita($valor1,$valor3,$valor4,$valor5){
+
+			$sql = "SELECT nome FROM receita WHERE Usuario_codigo = ".$valor1;
+			echo $sql."<br/>";
+
+			$result = mysqli_query($GLOBALS['conexao'],$sql);
+			?>
+		<select name="<?php echo $valor5; ?>">
+			<?php
+			while ($row = mysqli_fetch_array($result)) {
+				
+			?>
+			<option value="<?php echo $row[$valor3]; ?>"
+							<?php /*if ($row[$valor3]==$valor2){ 
+								echo " selected"; } */?>>
+							<?php echo $row[$valor4];?>
+								
+							</option>
+        	<?php } ?>
+		</select>
+<?php
+}
+
+
 
 ?>

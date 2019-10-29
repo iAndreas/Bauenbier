@@ -6,7 +6,7 @@ include 'connect/connect.php';
 include 'funcoes.php';
 $tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 'receita';
 $campos = isset($_GET['campos']) ? $_GET['campos'] : '(Usuario_codigo,nome,anotacao)';
-$title = "Receita";
+$title = "Grãos";
 ?>
 <html>
 
@@ -14,7 +14,7 @@ $title = "Receita";
   <?php
   session_start();
    //die(var_dump($_SESSION['codigo']));
-    $codigoUsuario= codigoUsuario($_SESSION['usuario']);
+    $codigoUsuario = codigoUsuario($_SESSION['usuario']);
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,7 +59,7 @@ $title = "Receita";
         <form method="get" action="acao.php" id="form">
           <input type="hidden" name="tabela" value="<?php echo $tb_tabela ?>">
           <input type="hidden" name="campos" value="<?php echo $campos ?>">
-          <input type="hidden" name="pagina" value="inserir_IBU.php">
+          <input type="hidden" name="pagina" value="inserir_graos.php">
           <input type="hidden" name="numero" value="3">
           <input type="hidden" name="n1" value="<?php echo $codigoUsuario ?>">
 

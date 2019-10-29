@@ -53,10 +53,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `Bauenbier`.`lupulos` (
   `idlupulo` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(60) NOT NULL,
-  `origem` VARCHAR(15) NULL,
   `alfaAcido` VARCHAR(45) NOT NULL,
-  `forma` VARCHAR(45) NOT NULL,
-  `tipo` VARCHAR(45) NOT NULL,
   `anotacao` VARCHAR(100) NULL,
   `receita_idreceita` INT NOT NULL,
   PRIMARY KEY (`idlupulo`),
@@ -131,4 +128,4 @@ INSERT INTO receita (Usuario_codigo,nome,anotacao) VALUES (1, '456.798.123-69', 
 
 
 
-
+SELECT nome FROM receita WHERE Usuario_codigo = 1;
