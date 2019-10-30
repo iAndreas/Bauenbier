@@ -8,23 +8,23 @@ for ($i=0; $i < count($_POST['formulario']); $i++) {
 
     $volume_em_litros[$i] = ''; // VOLUME
     if (isset($_POST["formulario"][$i]["volume_em_litros"]))
-      echo $volume_em_litros[$i] = $_POST["formulario"][$i]['volume_em_litros'];
+      $volume_em_litros[$i] = $_POST["formulario"][$i]['volume_em_litros'];
 
     $dencidade_mosto_pre_fervura[$i] = ''; // DENSIDADE MOSTO ANTES DA FERVURA
     if (isset($_POST["formulario"][$i]["dencidade_mosto_pre_fervura"]))
-      echo      $dencidade_mosto_pre_fervura[$i] = $_POST["formulario"][$i]["dencidade_mosto_pre_fervura"];
+      $dencidade_mosto_pre_fervura[$i] = $_POST["formulario"][$i]["dencidade_mosto_pre_fervura"];
 
     $tempo_fervura[$i] = ''; // TEMPO DE FERVURA
     if (isset($_POST["formulario"][$i]["tempo_fervura"]))
-      echo     $tempo_fervura[$i] = $_POST["formulario"][$i]["tempo_fervura"];
+         $tempo_fervura[$i] = $_POST["formulario"][$i]["tempo_fervura"];
 
     $peso_lupulo_g[$i] = ''; // MASSA DE LÚPULO
     if (isset($_POST["formulario"][$i]["peso_lupulo_g"]))
-			echo	$peso_lupulo_g[$i] = str_replace(",",".",$_POST["formulario"][$i]["peso_lupulo_g"]);
+			$peso_lupulo_g[$i] = str_replace(",",".",$_POST["formulario"][$i]["peso_lupulo_g"]);
 
     $alfa_acido[$i] = ''; // QUANTIDADE DE ALFA ACIDOS (OLHAR NA EMBALAGEM)
     if (isset($_POST["formulario"][$i]["alfa_acido"]))
-        echo $alfa_acido[$i] = str_replace(",",".",$_POST["formulario"][$i]["alfa_acido"]);
+        $alfa_acido[$i] = str_replace(",",".",$_POST["formulario"][$i]["alfa_acido"]);
 
 
 if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' && $dencidade_mosto_pre_fervura[$i]!='' && $tempo_fervura[$i]!='') {
