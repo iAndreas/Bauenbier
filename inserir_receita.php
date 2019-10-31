@@ -13,8 +13,8 @@ $title = "Receita";
 <head>
   <?php
   session_start();
-   //die(var_dump($_SESSION['codigo']));
-    $codigoUsuario= codigoUsuario($_SESSION['usuario']);
+  //die(var_dump($_SESSION['codigo']));
+  $codigoUsuario = codigoUsuario($_SESSION['usuario']);
   ?>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
