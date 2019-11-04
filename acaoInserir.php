@@ -1,28 +1,28 @@
 <?php
-  include 'conf/conf.inc.php';
-  include 'connect/connect.php';
+include 'conf/conf.inc.php';
+include 'connect/connect.php';
 
 
-  $acao = '';
-  if (isset($_GET["acao"]))
-    $acao = $_GET["acao"];
+$acao = '';
+if (isset($_GET["acao"]))
+  $acao = $_GET["acao"];
 
-  if (isset($_GET["tabela"]))
-    $tabela = $_GET["tabela"];
+if (isset($_GET["tabela"]))
+  $tabela = $_GET["tabela"];
 
-  $tb_tabela = isset($_GET['tabela'])?$_GET['tabela']:0;
-  $pagina = isset($_GET['pagina'])?$_GET['pagina']:0;
-  $numero = isset($_GET['numero'])?$_GET['numero']:0;
-  $parentesa = "(";
-  $parentesf = ")";
+$tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 0;
+$pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 0;
+$numero = isset($_GET['numero']) ? $_GET['numero'] : 0;
+$parentesa = "(";
+$parentesf = ")";
 
-  if (isset($_GET["nome"]))
-    $nome = $_GET["nome"];
+if (isset($_GET["nome"]))
+  $nome = $_GET["nome"];
 
 
-  
 
- /* if ($acao == "excluir"){
+
+/* if ($acao == "excluir"){
     $codigo = 0;
     if (isset($_GET["acao"])){
       $codigo = $_GET["codigo"];
@@ -36,65 +36,61 @@
       header ("location:".$nome);
     }
   }*/
-   if ($acao == 'salvar') {
-    $fim=false;
-    $sql = "SELECT usuario FROM usuario";
-    $result = mysqli_query($GLOBALS['conexao'],$sql);
-    while ($row = mysqli_fetch_array($result)) {
-      if ($row['usuario'] == $_GET['n1']) {
-        echo "volta";
-        $fim=true;
-      } 
+if ($acao == 'salvar') {
+  $fim = false;
+  $sql = "SELECT usuario FROM usuario";
+  $result = mysqli_query($GLOBALS['conexao'], $sql);
+  while ($row = mysqli_fetch_array($result)) {
+    if ($row['usuario'] == $_GET['n1']) {
+      echo "volta";
+      $fim = true;
     }
-    if ($fim) {
-      header("location:cadUser.php?e=213");
-    }else{
-      $tb_tabela = isset($_GET['tabela'])?$_GET['tabela']:0;
-      $pagina = isset($_GET['pagina'])?$_GET['pagina']:0;
-      $numero = isset($_GET['numero'])?$_GET['numero']:0;
-      if (isset($_GET['n1'])) {
-          for ($i= 1; $i <= $numero ; $i++) {
-              if ($i == 2) {
-                $lugares[$i] = sha1(isset($_GET['n'.$i])?$_GET['n'.$i]:0);
-              }else{
-                $lugares[$i] = isset($_GET['n'.$i])?$_GET['n'.$i]:0;
-              }
-          }
-          $sql = "INSERT INTO $tb_tabela VALUES ".$parentesa."'null'";
-          $i=1;
-          while ($i <= $numero) {
-              $data = DateTime::createfromFormat('d/m/Y', $lugares[$i]);
-              if ($data && $data->format('d/m/Y')) {
-                  $lugares[$i] = str_replace("/", "-", $lugares[$i]);
-                  $sql.= ",'".date("Y-m-d", strtotime($lugares[$i]))."'";
-              } else {
-                  $sql.= ",'".$lugares[$i]."'";
-              }
-              $i++;
-          }
-          $sql.= $parentesf;
-          echo "$sql";
-          $resultado = mysqli_query($conexao, $sql);
-          echo "<br/>";
-          print_r($lugares);
-          echo "<br/><br/><br/>";
-
-            echo $sql = "SELECT * FROM usuario WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
-            $result = mysqli_query($conexao, $sql);
-            
-            die();
-            
-            if($result != $resultado){
-              header("location:cadUser.php");
-            }
-            else
-            {
-              header("location:login.php");
-            }
-
-          header("location:inicial.php");
-          }
-      }
   }
+  if ($fim) {
+    header("location:cadUser.php?e=213&v=1");
+  } else {
+    $tb_tabela = isset($_GET['tabela']) ? $_GET['tabela'] : 0;
+    $pagina = isset($_GET['pagina']) ? $_GET['pagina'] : 0;
+    $numero = isset($_GET['numero']) ? $_GET['numero'] : 0;
+    if (isset($_GET['n1'])) {
+      for ($i = 1; $i <= $numero; $i++) {
+        if ($i == 2) {
+          $lugares[$i] = sha1(isset($_GET['n' . $i]) ? $_GET['n' . $i] : 0);
+        } else {
+          $lugares[$i] = isset($_GET['n' . $i]) ? $_GET['n' . $i] : 0;
+        }
+      }
+      $sql = "INSERT INTO $tb_tabela VALUES " . $parentesa . "'null'";
+      $i = 1;
+      while ($i <= $numero) {
+        $data = DateTime::createfromFormat('d/m/Y', $lugares[$i]);
+        if ($data && $data->format('d/m/Y')) {
+          $lugares[$i] = str_replace("/", "-", $lugares[$i]);
+          $sql .= ",'" . date("Y-m-d", strtotime($lugares[$i])) . "'";
+        } else {
+          $sql .= ",'" . $lugares[$i] . "'";
+        }
+        $i++;
+      }
+      $sql .= $parentesf;
+      echo "$sql";
+      $resultado = mysqli_query($conexao, $sql);
+      echo "<br/>";
+      print_r($lugares);
+      echo "<br/><br/><br/>";
 
-  ?>
+      echo $sql = "SELECT * FROM usuario WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
+      $result = mysqli_query($conexao, $sql);
+
+      die();
+
+      if ($result != $resultado) {
+        header("location:cadUser.php");
+      } else {
+        header("location:login.php");
+      }
+
+      header("location:inicial.php");
+    }
+  }
+}

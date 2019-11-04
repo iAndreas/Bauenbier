@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <?php
   session_start();
   if (isset($_SESSION['usuario']))
     header("location:index.php");
- ?>
+  ?>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon"  href="img/icone.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/icone.png">
   <link rel="stylesheet" href="css/css.css">
   <link href="css/material-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="css/materialize.min.css">
@@ -19,6 +20,7 @@
   <title>TCC</title>
 
 </head>
+
 <body>
   <nav class="grey darken-4" role="navigation">
     <div class="nav-wrapper container">
@@ -31,7 +33,9 @@
       </ul>
 
       <ul id="nav-mobile" class="sidenav">
-        <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
+        <li>
+          <h3 class="black-text text-darken-4 center-align">Bauenbier</h3>
+        </li><br>
         <li class="active"><a href="#">Página Inicial</a></li>
         <li><a href="#">Cálculos</a></li>
         <li><a href="sobre.php">Sobre Nós</a></li>
@@ -46,8 +50,8 @@
       <div class="container">
         <br><br>
         <center>
-        <img src="img/logo.png" class="header center" width="30%" style="margin-bottom: -20px;"></img>
-      </center>
+          <img src="img/logo.png" class="header center" width="30%" style="margin-bottom: -20px;"></img>
+        </center>
         <h1 class="header center white-text" style="font-family:'Staatliches'">Bauenbier: Calculadora para Cervejas Artesanais</h1>
         <div class="row center">
           <a style="border-radius: 10px;" id="download-button" class="modal-trigger btn-large amber darken-3" href="#modal1">Fazer Login</a>
@@ -62,36 +66,36 @@
 
   <div class="container">
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Fazer Login</h4><br>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Fazer Login</h4><br>
         <div class="row">
-    <form class="col s12" action="acaoLogin.php" id="form" method="post">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="user" name="user" type="text" class="validate" value="">
-          <label for="user">Nome de Usuário / E-mail</label>
-        </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">https</i>
-          <input id="pass" name="pass" type="password" class="validate" value="">
-          <label for="pass">Senha</label>
+          <form class="col s12" action="acaoLogin.php" id="form" method="post">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="user" name="user" type="text" class="validate" value="">
+                <label for="user">Nome de Usuário / E-mail</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">https</i>
+                <input id="pass" name="pass" type="password" class="validate" value="">
+                <label for="pass">Senha</label>
+              </div>
+            </div>
+            <center>
+              <button class="btn waves-effect waves-light" type="submit" name="acao" value="login" id="login">Enviar
+                <i class="material-icons right">send</i>
+              </button>
+            </center>
+          </form>
         </div>
       </div>
-      <center>
-      <button class="btn waves-effect waves-light" type="submit" name="acao" value="login" id="login">Enviar
-        <i class="material-icons right">send</i>
-      </button>
-      </center>
-    </form>
-  </div>
+      <div class="modal-footer">
+        Não possui uma conta?<a href="cadUser.php?v=0"> Cadastre-se</a>&ensp;&ensp;&ensp;
+      </div>
     </div>
-    <div class="modal-footer">
-      Não possui uma conta?<a href="cadUser.php"> Cadastre-se</a>&ensp;&ensp;&ensp;
-    </div>
-  </div>
 
     <div class="section">
       <!--   Icon Section   -->
@@ -141,20 +145,20 @@
         <div class="col s12 m4">
           <div class="icon-block">
 
-              <div class="card">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="img/card3.jpg">
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">IBU<i class="material-icons right">more_vert</i></span>
-                    <p class="grey-text text-darken-1">Clique para saber mais.</p>
-                  </div>
-                  <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">IBU<i class="material-icons right">close</i></span>
-                    <p>IBU significa International Bitterness Unit. Traduzindo para o português, unidade internacional de amargor. É pelo IBU que podemos ter uma ideia de o quão amarga é uma cerveja.</p>
-                    <a style="border-radius: 10px;" href="calculo_IBU.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
-                  </div>
-                </div>
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/card3.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">IBU<i class="material-icons right">more_vert</i></span>
+                <p class="grey-text text-darken-1">Clique para saber mais.</p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">IBU<i class="material-icons right">close</i></span>
+                <p>IBU significa International Bitterness Unit. Traduzindo para o português, unidade internacional de amargor. É pelo IBU que podemos ter uma ideia de o quão amarga é uma cerveja.</p>
+                <a style="border-radius: 10px;" href="calculo_IBU.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
+              </div>
+            </div>
 
           </div>
         </div>
@@ -176,29 +180,29 @@
               </div>
             </div>
 
-            </div>
+          </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
 
-                <div class="card">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="img/card1.jpg">
-                  </div>
-                  <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">SRM<i class="material-icons right">more_vert</i></span>
-                    <p class="grey-text text-darken-1">Clique para saber mais.</p>
-                  </div>
-                  <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">SRM<i class="material-icons right">close</i></span>
-                    <p>A cor está diretamente ligada à definição do tipo de cerveja, sua receita. Ela também revela o malte utilizado e o seu grau de torreifação.</p>
-                    <a style="border-radius: 10px;" href="calculo_COR.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
-                  </div>
-                </div>
-
-                </div>
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="img/card1.jpg">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">SRM<i class="material-icons right">more_vert</i></span>
+                <p class="grey-text text-darken-1">Clique para saber mais.</p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">SRM<i class="material-icons right">close</i></span>
+                <p>A cor está diretamente ligada à definição do tipo de cerveja, sua receita. Ela também revela o malte utilizado e o seu grau de torreifação.</p>
+                <a style="border-radius: 10px;" href="calculo_COR.php" id="download-button" class="btn-large waves-effect waves-light amber darken-3">Calcular</a>
+              </div>
             </div>
+
+          </div>
+        </div>
       </div>
 
     </div>
@@ -232,7 +236,7 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      © Made by: <a class="brown-text text-lighten-3" href="http://materializecss.com">André Gonçalves</a> & <a class="brown-text text-lighten-3" href="http://materializecss.com">Cristian Piehowiak</a>
+        © Made by: <a class="brown-text text-lighten-3" href="http://materializecss.com">André Gonçalves</a> & <a class="brown-text text-lighten-3" href="http://materializecss.com">Cristian Piehowiak</a>
       </div>
     </div>
   </footer>
@@ -243,5 +247,6 @@
   <script src="js/init.js"></script>
   <script src="js/config.js"></script>
 
-  </body>
+</body>
+
 </html>

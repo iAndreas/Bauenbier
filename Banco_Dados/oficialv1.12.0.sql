@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `Bauenbier`.`Usuario` (
         `usuario` VARCHAR(45) DEFAULT NULL UNIQUE,
         `senha` VARCHAR(45) DEFAULT NULL,
         `nome` VARCHAR(45) DEFAULT NULL,
-        `dataInial` DATE,
+        `dataInicial` DATE,
         `dataUltima` DATE,
         PRIMARY KEY (`codigo`))
 ENGINE = InnoDB;
@@ -119,6 +119,9 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 select * from Usuario;
 select * from receita;
 
+INSERT INTO Usuario (codigo,usuario,senha,nome,dataInicial,dataUltima) VALUES (null,'criti','1966e694bad90686516f99cdf432800fdca39290','cristian','2019-11-04','2019-11-04');
+
+INSERT INTO Usuario VALUES (null,'ALBERTO','1966e694bad90686516f99cdf432800fdca39290','alberto','2019-11-04','2019-11-04');
 
 
 SELECT codigo FROM usuario WHERE usuario = 'cristianpie';
