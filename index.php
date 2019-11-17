@@ -24,12 +24,12 @@
 	<nav class="grey darken-4" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Bauenbier</a>
-      <ul class="right hide-on-med-and-down">
-        <li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="#"> <i class="material-icons">home</i></a></li>
-        <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="#"> <i class="material-icons">create</i></a></li>
-        <li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
-        <li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
-      </ul>
+			<ul class="right hide-on-med-and-down">
+				<li class="active tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="index.php"> <i class="material-icons">home</i></a></li>
+				<li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="inicial.php#calculos"> <i class="material-icons">create</i></a></li>
+				<li class="tooltipped" data-position="bottom" data-tooltip="Sobre nós"><a href="sobre.php"> <i class="material-icons">info</i></a></li>
+				<li class="tooltipped" data-position="bottom" data-tooltip="Minha Conta"><a href="#modal1" class="modal-trigger"> <i class="material-icons">account_circle</i></a></li>
+			</ul>
 
       <ul id="nav-mobile" class="sidenav">
         <li><h3 class="black-text text-darken-4 center-align">Bauenbier</h3></li><br>
