@@ -4,7 +4,6 @@
   $titulo = "Integração com BD";
   if ($_GET['v'] == '1') {
     if ($_GET['e'] == '213') {
-      echo "foi";
       ?><script>
        alert('Este nome de usuario já existe');
      </script>

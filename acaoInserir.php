@@ -78,11 +78,14 @@ if ($acao == 'salvar') {
       echo "<br/>";
       print_r($lugares);
       echo "<br/><br/><br/>";
+      
+
+      $lugares[4] = date("Y-m-d", strtotime($lugares[4]));
 
       echo $sql = "SELECT * FROM usuario WHERE usuario = '$lugares[1]' and senha = '$lugares[2]' and nome = '$lugares[3]' and dataInial = '$lugares[4]'";
       $result = mysqli_query($conexao, $sql);
 
-      die();
+      //die();
 
       if ($result != $resultado) {
         header("location:cadUser.php");
