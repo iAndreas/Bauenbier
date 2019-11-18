@@ -24,7 +24,7 @@
 <body>
   <nav class="grey darken-4" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Bauenbier</a>
+      <a id="logo-container" href="inicial.php" class="brand-logo">Bauenbier</a>
       <ul class="right hide-on-med-and-down">
         <li class="tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="index.php"> <i class="material-icons">home</i></a></li>
         <li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="inicial.php#calculos"> <i class="material-icons">create</i></a></li>

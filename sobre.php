@@ -16,7 +16,7 @@
 <body class="blue-grey lighten-5">
   <nav class="grey darken-4" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Bauenbier</a>
+      <a id="logo-container" href="inicial.php" class="brand-logo">Bauenbier</a>
 			<ul class="right hide-on-med-and-down">
 				<li class="tooltipped" data-position="bottom" data-tooltip="Página Inicial"><a href="index.php"> <i class="material-icons">home</i></a></li>
 				<li class="tooltipped" data-position="bottom" data-tooltip="Cálculos"><a href="inicial.php#calculos"> <i class="material-icons">create</i></a></li>
@@ -29,14 +29,14 @@
         <li class="active"><a href="#">Página Inicial</a></li>
         <li><a href="#">Cálculos</a></li>
         <li><a href="sobre.php">Sobre Nós</a></li>
-        <li><a href="#">Login</a></li>
+        <li><a href="inicial.php">Login</a></li>
       </ul>
       <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     </div>
   </nav>
   <div class="container center-align white" style="width: 100%; border-radius: 0px 0px 10px 10px; box-shadow: 0px 8px 15px lightgrey;">
     <br><br>
-    <h1>Nossa Equipe</h1>
+    <h1>Equipe</h1>
     <br><br>
     <div class="row">
       <div class="col s6">

@@ -2,6 +2,7 @@
 include 'funcoes_calculo.php';
 //https://aterradacerveja.com.br/brassagem/como-calcular-ibu-cerveja-artesanal.html/
 $i=0;
+$erro=0;
 $IBU_total=0;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 for ($i=0; $i < count($_POST['formulario']); $i++) {
@@ -36,10 +37,13 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
     $A[$i] = Unidade_medida_porcent_para_decimal($alfa_acido[$i]);
 
     $U[$i] = Utilizacao_IBU ($dencidade_mosto_pre_fervura[$i], $tempo_fervura[$i]);
-
+    if ($U[$i] == 0) {
+      $erro = 1;
+    }
     $IBU[$i] = Calcula_IBU($U[$i],$A[$i],$peso_lupulo_mg[$i],$volume_em_litros[$i]);
 
   $IBU_total += $IBU[$i];
+    
 }
 
 }
@@ -164,9 +168,13 @@ if ($volume_em_litros[$i]!='' && $peso_lupulo_g[$i]!='' && $alfa_acido[$i]!='' &
 
     <?php
      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+       if ($erro==1) {
+        echo "<br/><b>Erro! Valor de OG ou Tempo não encontrado na matriz.</b>";
+       }else{
         if ($volume_em_litros!='' && $peso_lupulo_g!='' && $alfa_acido!='' && $dencidade_mosto_pre_fervura!='' && $tempo_fervura!='') {
           echo "<br/><b>Resultado:</b> O IBU obtido foi de ".number_format(round($IBU_total, 2), 2, ',', '.')." IBU<hr>";
         }
+       }
       }
     ?>
 <br/><br/><br/>
