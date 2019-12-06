@@ -59,7 +59,7 @@ $title = "Receita";
         <form method="get" action="acao.php" id="form">
           <input type="hidden" name="tabela" value="<?php echo $tb_tabela ?>">
           <input type="hidden" name="campos" value="<?php echo $campos ?>">
-          <input type="hidden" name="pagina" value="inserir_IBU.php">
+          <input type="hidden" name="pagina" value="inicial.php">
           <input type="hidden" name="numero" value="3">
           <input type="hidden" name="n1" value="<?php echo $codigoUsuario ?>">
 
